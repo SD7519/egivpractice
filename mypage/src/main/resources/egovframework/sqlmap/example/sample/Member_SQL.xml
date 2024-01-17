@@ -11,4 +11,10 @@
 			VALUES
 				(#userid#, #userpass#, #email#, #name#, #birth#, #phonenum#)
 	</insert>
+	
+	<select id="memberDAO.loginMember" resultClass="java.lang.Integer">
+		SELECT COUNT(*) FROM pmember
+				WHERE
+					userid = #userid# AND userpass = #userpass#
+	</select>
 </sqlMap>

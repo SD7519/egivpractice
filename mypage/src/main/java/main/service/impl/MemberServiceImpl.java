@@ -17,5 +17,10 @@ public class MemberServiceImpl implements MemberService{
 	public String registerWrite(MemberVO vo) throws Exception {
 		return memberDAO.insertMember(vo);
 	}
+
+	@Override
+	public int loginMember(MemberVO vo) throws Exception {
+		return memberDAO.loginMember(vo);
+	}
 	
 }

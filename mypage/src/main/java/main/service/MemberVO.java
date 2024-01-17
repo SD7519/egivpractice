@@ -13,13 +13,13 @@ public class MemberVO {
 	private String emailt;
 	
 	
-	public String getUsesrid() {
+	public String getUserid() {
 		return userid;
 	}
 	public void setUserid(String userid) {
 		this.userid = userid;
 	}
-	public String getUsesrpass() {
+	public String getUserpass() {
 		return userpass;
 	}
 	public void setUserpass(String userpass) {

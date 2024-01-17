@@ -1,6 +1,7 @@
 package main.service.web;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +14,17 @@ import main.service.MemberVO;
 public class MemberController {
 	@Resource(name = "memberService")
 	private MemberService memberService;
+	
+	@RequestMapping(value = "/main.do")
+	public String main() {
+		return "index";
+	}
+	
+	@RequestMapping(value = "/login.do")
+	public String login() {
+		return "member/login";
+	}
+	
 	
 	@RequestMapping(value = "/register.do")
 	public String memberRegister() {
@@ -47,6 +59,21 @@ public class MemberController {
 		} else {
 			msg="fail";
 		}
+		return msg;
+	}
+	
+	@RequestMapping(value = "loginMember.do")
+	public String loginMemeber(MemberVO vo, HttpSession session) throws Exception {
+		String msg;
+		int result = memberService.loginMember(vo);
+		
+		if(result == 1) {
+			msg = "ok";
+			session.setAttribute("UserID", vo.getUserid());
+		} else {
+			msg ="fail";
+		}
+		
 		return msg;
 	}
 }

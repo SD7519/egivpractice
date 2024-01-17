@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c"      uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form"   uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="ui"     uri="http://egovframework.gov/ctl/ui"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -55,7 +59,7 @@ $( function() {
     		success: function (data) {
     			if(data == "ok") {
     				alert("저장완료");
-    				location = "register.do";
+    				location = "login.do";
     			} else {
     				alert("저장실패");
     			}
@@ -71,29 +75,25 @@ $( function() {
 	* {
 		margin: 0 auto;
 	}
+	/*
 	body {
 		font-size:9pt;
 	}
 	button {
 		font-size:9pt;
 	}
-	table{
-		width:400px;
+	*/
+	.register-table{
+		width:70%;
 		border-collapse:collapse;
+		height: 70%;
 	}
-	th,td {
+	.register-th, .register-td {
 		border:1px solid #cccccc;
 		padding: 3px;
 	}
-	td{
-		
-	}
 	.input1 {
 		width:98%;
-	}
-	.textarea {
-		width:98%;
-		height:70px;
 	}
 	caption {
 		font-weight: bold;		
@@ -103,22 +103,40 @@ $( function() {
 		text-align:center;
 		margin-top:5px;
 	}
+	div {
+		width: 80%
+	}
+	.top_menu{
+		display: flex;
+	}
+	a {
+		text-decoration-line: none;
+		color: black;
+	}
 </style>
 <body>
+<div class="top_menu">
+	<div style="text-align: left;"><a href="/main.do">홈</a></div>
+	<div style="text-align: right;">
+		<a href="/login.do">로그인</a>
+		<a href="/register.do">회원가입</a>
+	</div>
+</div>
+<div>
 <form id="frm" method="post" action="/registerWrite.do">
-	<table>
+	<table class="register-table">
 		<caption>회원가입</caption>
 		<tr>
-			<th ><label for="userid">아이디</label></th>
-			<td><input type="text" name="userid" id="userid"/></td>
+			<th class="register-th"><label for="userid">아이디</label></th>
+			<td class="register-td"><input type="text" name="userid" id="userid" class="input1"/></td>
 		</tr>
 		<tr>
-			<th><label>비밀번호</label></th>
-			<td><input type="password" name="userpass" id="userpass"/></td>
+			<th class="register-th"><label>비밀번호</label></th>
+			<td class="register-td"><input type="password" name="userpass" id="userpass" class="input1"/></td>
 		</tr>
 		<tr>
-			<th><label>이메일</label></th>
-			<td>
+			<th class="register-th"><label>이메일</label></th>
+			<td class="register-td">
 				<input type="hidden" name="email" id="email"/>
 				<input type="text" name="emailh" id="emailh"/>
 				<label>@</label>
@@ -130,16 +148,16 @@ $( function() {
 			</td>
 		</tr>
 		<tr>
-			<th><label>이름</label></th>
-			<td><input type="text" name="name" id="name"/></td>
+			<th class="register-th"><label>이름</label></th>
+			<td class="register-td"><input type="text" name="name" id="name" class="input1"/></td>
 		</tr>
 		<tr>
-			<th><label>생년월일</label></th>
-			<td><input type="text" name="birth" id="birth" readonly></td>
+			<th class="register-th"><label>생년월일</label></th>
+			<td class="register-td"><input type="text" name="birth" id="birth" readonly class="input1"></td>
 		</tr>
 		<tr>
-			<th><label>전화번호</label></th>
-			<td><input type="text" name="phonenum" id="phonenum"/> ex) 010-1234-1234</td>
+			<th class="register-th"><label>전화번호</label></th>
+			<td class="register-td"><input type="text" name="phonenum" id="phonenum" class="input1"/> ex) 010-1234-1234</td>
 		</tr>
 	</table>
 	<div class="div_button">
@@ -147,7 +165,6 @@ $( function() {
 		<button type="reset">취소</button>
 	</div>
 </form>
-
-
+</div>
 </body>
 </html>
