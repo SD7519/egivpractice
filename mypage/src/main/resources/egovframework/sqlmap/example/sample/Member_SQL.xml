@@ -17,4 +17,5 @@
 				WHERE
 					userid = #userid# AND userpass = #userpass#
 	</select>
+	
 </sqlMap>

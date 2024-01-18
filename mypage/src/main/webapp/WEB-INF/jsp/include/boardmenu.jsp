@@ -22,8 +22,8 @@
 <div>
 	<table>
 		<tr>
-			<th width="25%"><button id="board_btn">1번</button></th>
-			<th width="25%"><button id="board_btn">2번</button></th>
+			<th width="25%"><button id="board_btn" onclick="location='/boardWrite.do'">게시글 작성</button></th>
+			<th width="25%"><button id="board_btn" onclick="location='/boardList.do'">전체 게시판</button></th>
 			<th width="25%"><button id="board_btn">3번</button></th>
 			<th width="25%"><button id="board_btn">4번</button></th>
 		</tr>

@@ -5,10 +5,13 @@
 <head>
 <meta charset="UTF-8">
 <title>게시글 등록 화면</title>
-<script src="/script/jquery-3.7.1.js"></script>
-<script src="/script/jquery-3.7.1.min.js"></script>
+<script src="../script/jquery-3.7.1.min.js"></script>
+<script src="../script/jquery-3.7.1.min.js"></script>
 </head>
 <style>
+	* {
+		margin: 0 auto;
+	}
 	body {
 		font-size:9pt;
 	}
@@ -16,7 +19,7 @@
 		font-size:9pt;
 	}
 	table{
-		width:600px;
+		/*width:70%;*/
 		border-collapse:collapse;
 	}
 	th,td {
@@ -38,7 +41,7 @@ $(function(){
 });
 
 
-function fn_submit() {	
+function fn_save() {	
 	//trim() -> 앞뒤 공백 제거, java, jsp 	
 	if( $.trim( $("#title").val() ) == "") {
 		alert("제목을 입력해주세요.");
@@ -64,9 +67,8 @@ function fn_submit() {
 		success: function (data) {
 			if(data == "ok") {
 				alert("저장완료");
-				location = "boardList.do"
+				location = "boardList.do";
 			} else {
-				
 				alert("저장실패");
 			}
 		},
@@ -79,20 +81,23 @@ function fn_submit() {
 </script>
 
 <body>
+<%@ include file="../include/topmenu.jsp" %>
+<%@ include file="../include/boardmenu.jsp" %>
+<div>
 	<form id="frm">
 		<table>
 			<caption>게시글 등록</caption>
 			<tr>
 				<th width="20%"><label for="title">제목</label></th>
-				<td iwdth="80%"><input type="text" name="title" id="title" class="input1"></td>
+				<td width="80%"><input type="text" name="title" id="title" class="input1"></td>
 			</tr>
 			<tr>
 				<th><label for="category">카테고리</label></th>
 				<td>
 				<select name="category">
-					<option value="default">일반</option>
-					<option value="guess">고민</option>
-					<option value="hobby">취미</option>
+					<option value="b">일반</option>
+					<option value="g">고민</option>
+					<option value="h">취미</option>
 				</select>
 				</td>
 			</tr>
@@ -110,11 +115,12 @@ function fn_submit() {
 			</tr>
 			<tr>
 				<th colspan="2">
-					<button type="button" onclick="fn_submit(); return false;">저장</button>
+					<button type="button" onclick="fn_save(); return false;">저장</button>
 					<button type="reset">취소</button>
 				</th>
 			</tr>
 		</table>
 	</form>
+</div>
 </body>
 </html>

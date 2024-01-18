@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="Boardspace">
+
+	<typeAlias  alias="egovMap" type="org.egovframe.rte.psl.dataaccess.util.EgovMap"/>
+	<typeAlias  alias="boardVO" type="main.service.BoardVO"/>
+
+	<insert id="boardDAO.insertBoardWrite">
+		INSERT INTO sboard 
+				(unq, title, pass, name, content, hits, rdate, category)
+			VALUES
+				(board_seq.nextval, #title#, #pass#, #name#, #content#, 0, sysdate, #category#)
+	</insert>
+	
+	<select id="boardDAO.selectBoardList" resultClass="egovMap">
+		
+			select b.* from(
+				select rownum rn, a.* from(
+					select unq, title, name, hits, to_char(rdate, 'yyyy-mm-dd') rdate, category
+					from sboard 
+						<isNotNull property="searchGubun">
+							<isNotNull property="searchText">
+								where $searchGubun$ like '%' || #searchText# || '%'
+							</isNotNull>
+						</isNotNull>
+						order by unq desc) a  ) b
+			where
+				rn >= #startIndex# and rn <![CDATA[<=]]> #endIndex#
+		
+	</select>
+	
+	<select id="boardDAO.selectBoardTotal" resultClass="java.lang.Integer">
+		select count(*) total from sboard
+		<isNotNull property="searchGubun">
+			<isNotNull property="searchText">
+				where $searchGubun$ like '%' || #searchText# || '%'
+			</isNotNull>
+		</isNotNull>
+	</select>
+	
+</sqlMap>
