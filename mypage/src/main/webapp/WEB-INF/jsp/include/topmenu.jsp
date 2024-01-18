@@ -15,7 +15,7 @@
 		margin:0 auto;
 	}
 	div {
-		width: 80%
+		width: 60%
 	}
 	.top_menu{
 		display: flex;
@@ -35,7 +35,7 @@
 				<a href="/login.do">로그인</a>
 				<a href="/register.do">회원가입</a>
 	<%} else {%>
-				<a href="/memberDetail.do">회원정보</a>
+				<a href="/memberDetail.do"><%out.print(UserID);%>님</a>
 				<a href="/logout.do">로그아웃</a>				
 	<%} %>
 	</div>

@@ -12,14 +12,8 @@
 	* {
 		margin: 0 auto;
 	}
-	body {
-		font-size:9pt;
-	}
-	button {
-		font-size:9pt;
-	}
 	table{
-		/*width:70%;*/
+		width:100%;
 		border-collapse:collapse;
 	}
 	th,td {
@@ -31,7 +25,7 @@
 	}
 	.textarea {
 		width:98%;
-		height:70px;
+		height:300px;
 	}
 </style>
 
@@ -107,7 +101,7 @@ function fn_save() {
 			</tr>
 			<tr>
 				<th>글쓴이</th>
-				<td><input type="text" name="name" id="name"></td>
+				<td><input type="text" name="name" id="name" value="<%out.print(UserID);%>" readonly></td>
 			</tr>
 			<tr>
 				<th>내용</th>

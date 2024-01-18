@@ -18,6 +18,9 @@
 				select rownum rn, a.* from(
 					select unq, title, name, hits, to_char(rdate, 'yyyy-mm-dd') rdate, category
 					from sboard 
+						<isNotNull property="category">
+							where category = #category#
+						</isNotNull>
 						<isNotNull property="searchGubun">
 							<isNotNull property="searchText">
 								where $searchGubun$ like '%' || #searchText# || '%'
@@ -33,7 +36,10 @@
 		select count(*) total from sboard
 		<isNotNull property="searchGubun">
 			<isNotNull property="searchText">
-				where $searchGubun$ like '%' || #searchText# || '%'
+				where $searchGubun$ like '%' || #searchText# || '%' AND
+					<isNotNull property="category">
+						category = #category#
+					</isNotNull>
 			</isNotNull>
 		</isNotNull>
 	</select>

@@ -12,7 +12,7 @@
 		background-color: silver;
 		cursor: pointer;
 	}
-	table {
+	.boardmenu-table {
 		width: 100%;
 		padding: 0;
 	}
@@ -20,12 +20,12 @@
 </head>
 <body>
 <div>
-	<table>
+	<table class="boardmenu-table">
 		<tr>
-			<th width="25%"><button id="board_btn" onclick="location='/boardWrite.do'">게시글 작성</button></th>
-			<th width="25%"><button id="board_btn" onclick="location='/boardList.do'">전체 게시판</button></th>
-			<th width="25%"><button id="board_btn">3번</button></th>
-			<th width="25%"><button id="board_btn">4번</button></th>
+			<th width="25%"><button id="board_btn" onclick="location='/boardList.do'">전체글</button></th>
+			<th width="25%"><button id="board_btn" onclick="location='/boardList.do?category=b'">일반 게시판</button></th>
+			<th width="25%"><button id="board_btn" onclick="location='/boardList.do?category=g'">고민 게시판</button></th>
+			<th width="25%"><button id="board_btn" onclick="location='/boardList.do?category=h'">취미 게시판</button></th>
 		</tr>
 	</table>
 </div>

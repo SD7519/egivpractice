@@ -57,8 +57,20 @@ public class BoardController {
 		vo.setStartIndex(startIndex);
 		vo.setEndIndex(endIndex);
 		
+		String ctgy = "";
+		String category = vo.getCategory();
+		if(category == null) { category = ""; }
+		switch (category) {
+			case "b" : ctgy = "일반"; break;
+			case "g" : ctgy = "고민"; break;
+			case "h" : ctgy = "취미"; break;
+			default : ctgy = "전체"; break;
+		}
+		
 		List<?> list = boardService.selectBoardList(vo);
 		
+		model.addAttribute("searchCategory",vo.getCategory());
+		model.addAttribute("category", ctgy);
 		model.addAttribute("rowNumber", startRowNo);
 		model.addAttribute("total",total);
 		model.addAttribute("totalPage",totalPage);

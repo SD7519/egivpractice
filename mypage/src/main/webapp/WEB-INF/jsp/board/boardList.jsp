@@ -11,66 +11,60 @@
 <title>전체 게시글 목록</title>
 </head>
 <style>
-	body {
-		font-size:9pt;
-	}
-	button {
-		font-size:9pt;
-	}
 	table{
-		width:600px;
 		border-collapse:collapse;
+		width: 100%;
 	}
 	th,td {
 		border:1px solid #cccccc;
 		padding: 3px;
 	}
-	.input1 {
-		width:98%;
-	}
-	.textarea {
-		width:98%;
-		height:70px;
-	}
 	.div1 {
-		width: 600px;
+		width: 100%;
 		text-align:center;
 		font-size:15pt;'
 	}
 	.div2 {
-		width:600px;
-		font-size:8pt;
 		display:flex;
+		width: 100%;
+	}
+	.div3 {
+		font-size:8pt;
 		align-items:center;
+		margin: 0;
+		text-align:left;
+	}
+	.div4 {
+		font-size:8pt;
+		align-items:center;
+		margin: 0;
+		text-align: right;
 	}
 </style>
 <body>
 <%@ include file="../include/topmenu.jsp" %>
 <%@ include file="../include/boardmenu.jsp" %>
 <div>
+			<div class="div1">${category} 게시글 목록</div>
+			<div class="div2">
+				<div class="div3">Total : ${total}</div>
+				<div class="div4">
+					<form id="searchFrm" method="post" action="boardList.do">
+						<select name="searchGubun" id="searchGubun">
+							<option value="title">제목</option>
+							<option value="name">글쓴이</option>
+							<option value="content">내용</option>
+						</select>
+						<input type="text" name="searchText" id="searchText">
+						<input type="hidden" name="category" id="category" value="${searchCategory}">
+						<button type="submit">검색</button>
+					</form>
+				</div>
+			</div>
 	<table>
 		<tr>
-			<th><div class="div1">전체 게시글 목록</div></th>
-		</tr>
-		<tr>
-			<th><div class="div2">Total : ${total}</div></th>
-			<th>
-			<div class="div2">
-				<form id="searchFrm" method="post" action="boardList.do">
-					<select name="searchGubun" id="searchGubun">
-						<option value="title">제목</option>
-						<option value="name">글쓴이</option>
-						<option value="content">내용</option>
-					</select>
-					<input type="text" name="searchText" id="searchText">
-					<button type="submit">검색</button>
-				</form>
-			</div>
-			</th>
-		</tr>
-		<tr>
 			<th width="10%">번호</th>
-			<th width="10%">카테고리</th>
+	   <!-- <th width="10%">카테고리</th> -->
 			<th width="35%">제목</th>
 			<th width="15%">글쓴이</th>
 			<th width="15%">등록일</th>
@@ -82,7 +76,7 @@
 		<c:forEach var="result" items="${resultList}">
 			<tr align="center">
 				<td><c:out value="${cnt}"/></td>
-				<td><c:out value="${result.category}"/></td>
+		   <!-- <td><c:out value="${result.category}"/></td> -->
 				<td align="left">
 					<a href="boardDetail.do?uno=${result.uno}"><c:out value="${result.title}"/></a>
 				</td>
@@ -94,13 +88,13 @@
 		</c:forEach>
 	</table>
 	
-	<div style="width:600px; margin-top:5px; text-align:center;">
+	<div style="width:90%; margin-top:5px; text-align:center;">
 		<c:forEach var="i" begin="1" end="${totalPage}">
 			<a href="boardList.do?viewPage=${i}">${i}</a>
 		</c:forEach>
 	</div>
 	
-	<div style="width:600px; margin-top:5px; text-align:right;">
+	<div style="width:100%; margin-top:5px; text-align:right;">
 		<button type="button" onclick="location='boardWrite.do'">글쓰기</button>
 	</div>
 </div>
