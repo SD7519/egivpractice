@@ -75,14 +75,6 @@ $( function() {
 	* {
 		margin: 0 auto;
 	}
-	/*
-	body {
-		font-size:9pt;
-	}
-	button {
-		font-size:9pt;
-	}
-	*/
 	.register-table{
 		width:70%;
 		border-collapse:collapse;
@@ -106,24 +98,11 @@ $( function() {
 	div {
 		width: 80%
 	}
-	.top_menu{
-		display: flex;
-	}
-	a {
-		text-decoration-line: none;
-		color: black;
-	}
 </style>
 <body>
-<div class="top_menu">
-	<div style="text-align: left;"><a href="/main.do">홈</a></div>
-	<div style="text-align: right;">
-		<a href="/login.do">로그인</a>
-		<a href="/register.do">회원가입</a>
-	</div>
-</div>
+<%@ include file="../include/topmenu.jsp" %>
 <div>
-<form id="frm" method="post" action="/registerWrite.do">
+<form id="frm">
 	<table class="register-table">
 		<caption>회원가입</caption>
 		<tr>

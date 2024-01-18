@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>메인페이지</title>
+<title></title>
 </head>
 <style>
 	* {
@@ -17,40 +17,27 @@
 	div {
 		width: 80%
 	}
-	.div-banner {
-		text-align: center;
-		border: 1px solid #000000;
-		height: 100px;
-	}
-	.div-main{
+	.top_menu{
 		display: flex;
-		border: 1px solid #000000;
-		margin-top: 10px;
 	}
-	.main1 {
-		background-color: yellow;
-		width: 50%;
-		height: 200px;
-	}
-	.main2 {
-		background-color: green;
-		width: 50%;
-		height: 200px;
+	a {
+		text-decoration-line: none;
+		color: black;
 	}
 </style>
-<body>
-<%@ include file="../jsp/include/topmenu.jsp" %>
-<%@ include file="../jsp/include/boardmenu.jsp" %>
 
-<div class="div-banner">
-	
-</div>
-<div class="div-main">
-	<div class="main1">
-		
-	</div>
-	<div class="main2">
-		
+<body>
+<% String UserID = (String) session.getAttribute("userid"); %>
+<div class="top_menu">
+	<div style="text-align: left;"><a href="/main.do">홈</a></div>
+	<div style="text-align: right;">
+	<% if(UserID == null) { %>
+				<a href="/login.do">로그인</a>
+				<a href="/register.do">회원가입</a>
+	<%} else {%>
+				<a href="/memberDetail.do">회원정보</a>
+				<a href="/logout.do">로그아웃</a>				
+	<%} %>
 	</div>
 </div>
 </body>

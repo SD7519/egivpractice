@@ -35,15 +35,6 @@ public class MemberController {
 	@ResponseBody
 	public String registerWrite(MemberVO vo) throws Exception{
 		
-//		System.out.println(vo.getUsesrid());
-//		System.out.println(vo.getUsesrpass());
-//		System.out.println(vo.getEmailh());
-//		System.out.println(vo.getEmailt());
-//		System.out.println(vo.getEmail());
-//		System.out.println(vo.getName());
-//		System.out.println(vo.getBirth());
-//		System.out.println(vo.getPhonenum());
-		
 		switch(vo.getEmailt()) {
 			case "naver" : vo.setEmailt("naver.com"); break;
 			case "google" : vo.setEmailt("google.com"); break;
@@ -63,17 +54,27 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value = "loginMember.do")
+	@ResponseBody
 	public String loginMemeber(MemberVO vo, HttpSession session) throws Exception {
-		String msg;
+		
 		int result = memberService.loginMember(vo);
+		String msg;
 		
 		if(result == 1) {
 			msg = "ok";
-			session.setAttribute("UserID", vo.getUserid());
+			session.setAttribute("userid", vo.getUserid());
 		} else {
 			msg ="fail";
 		}
 		
 		return msg;
+	}
+	
+	@RequestMapping(value = "/logout.do")
+	public String logout(HttpSession session) throws Exception {
+		
+		session.removeAttribute("userid");
+		
+		return "redirect:main.do";
 	}
 }
