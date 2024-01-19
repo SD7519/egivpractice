@@ -3,7 +3,7 @@
 <sqlMap namespace="Memberspace">
 
 	<typeAlias  alias="egovMap" type="org.egovframe.rte.psl.dataaccess.util.EgovMap"/>
-	<typeAlias  alias="memberVo" type="main.service.MemberVO"/>
+	<typeAlias  alias="memberVO" type="main.service.MemberVO"/>
 
 	<insert id="memberDAO.insertMember">
 		INSERT INTO pmember

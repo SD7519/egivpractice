@@ -70,7 +70,7 @@ public class BoardController {
 		List<?> list = boardService.selectBoardList(vo);
 		
 		model.addAttribute("searchCategory",vo.getCategory());
-		model.addAttribute("category", ctgy);
+		model.addAttribute("titlecategory", ctgy);
 		model.addAttribute("rowNumber", startRowNo);
 		model.addAttribute("total",total);
 		model.addAttribute("totalPage",totalPage);

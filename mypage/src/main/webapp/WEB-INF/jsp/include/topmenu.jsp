@@ -15,10 +15,7 @@
 		margin:0 auto;
 	}
 	div {
-		width: 60%
-	}
-	.top_menu{
-		display: flex;
+		width: 70%
 	}
 	a {
 		text-decoration-line: none;
@@ -29,13 +26,13 @@
 <body>
 <% String UserID = (String) session.getAttribute("userid"); %>
 <div class="top_menu">
-	<div style="text-align: left;"><a href="/main.do">홈</a></div>
-	<div style="text-align: right;">
+	<div style="text-align: center; width: 100%;"><a href="/main.do">홈</a></div>
+	<div style="text-align: right; width: 100%;">
 	<% if(UserID == null) { %>
 				<a href="/login.do">로그인</a>
 				<a href="/register.do">회원가입</a>
 	<%} else {%>
-				<a href="/memberDetail.do"><%out.print(UserID);%>님</a>
+				<a href="/memberDetail.do" style="color: blue;"><%out.print(UserID);%>님</a>
 				<a href="/logout.do">로그아웃</a>				
 	<%} %>
 	</div>

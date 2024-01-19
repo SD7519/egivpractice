@@ -16,16 +16,22 @@
 		
 			select b.* from(
 				select rownum rn, a.* from(
-					select unq, title, name, hits, to_char(rdate, 'yyyy-mm-dd') rdate, category
+					select unq, title, name, hits, to_char(rdate, 'yyyy-mm-dd') rdate
 					from sboard 
 						<isNotNull property="category">
 							where category = #category#
 						</isNotNull>
 						<isNotNull property="searchGubun">
 							<isNotNull property="searchText">
+								<isNull property="category">
 								where $searchGubun$ like '%' || #searchText# || '%'
+								</isNull>
+								<isNotNull property="category">
+								and $searchGubun$ like '%' || #searchText# || '%'
+								</isNotNull>
 							</isNotNull>
 						</isNotNull>
+						
 						order by unq desc) a  ) b
 			where
 				rn >= #startIndex# and rn <![CDATA[<=]]> #endIndex#
@@ -34,12 +40,17 @@
 	
 	<select id="boardDAO.selectBoardTotal" resultClass="java.lang.Integer">
 		select count(*) total from sboard
+		<isNotNull property="category">
+			where category = #category#
+		</isNotNull>
 		<isNotNull property="searchGubun">
 			<isNotNull property="searchText">
-				where $searchGubun$ like '%' || #searchText# || '%' AND
-					<isNotNull property="category">
-						category = #category#
-					</isNotNull>
+				<isNull property="category">
+					where $searchGubun$ like '%' || #searchText# || '%'
+				</isNull>
+				<isNotNull property="category">
+					and $searchGubun$ like '%' || #searchText# || '%'
+				</isNotNull>
 			</isNotNull>
 		</isNotNull>
 	</select>

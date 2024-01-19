@@ -20,7 +20,7 @@
 	.div-banner {
 		text-align: center;
 		border: 1px solid #000000;
-		height: 100px;
+		height: 200px;
 	}
 	.div-main{
 		display: flex;
@@ -37,6 +37,9 @@
 		width: 50%;
 		height: 200px;
 	}
+	.table-1 {
+		width: 100%;
+	}
 </style>
 <body>
 <%@ include file="../jsp/include/topmenu.jsp" %>
@@ -47,7 +50,24 @@
 </div>
 <div class="div-main">
 	<div class="main1">
-		
+		<table class="table-1">
+		<caption>최근 게시물</caption>
+			<tr>
+				<td><a href="">가</a></td>
+			</tr>
+			<tr>
+				<td><a href="">가</a></td>
+			</tr>
+			<tr>
+				<td><a href="">가</a></td>
+			</tr>
+			<tr>
+				<td><a href="">가</a></td>
+			</tr>
+			<tr>
+				<td><a href="">가</a></td>
+			</tr>
+		</table>
 	</div>
 	<div class="main2">
 		

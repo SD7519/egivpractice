@@ -59,7 +59,7 @@ $( function() {
 		margin: 0 auto;
 	}
 	.register-table{
-		width:30%;
+		width:20%;
 		border-collapse:collapse;
 		height: 50%;
 		text-align: center;

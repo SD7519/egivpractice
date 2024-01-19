@@ -40,12 +40,25 @@
 		margin: 0;
 		text-align: right;
 	}
+	.div-left {
+		border:1px solid #cccccc;
+		width:10%;
+		margin-right:10px;
+	}
+	.div-table {
+		width:90%;
+	}
+	.div-main {
+		display: flex;
+	}
 </style>
 <body>
 <%@ include file="../include/topmenu.jsp" %>
 <%@ include file="../include/boardmenu.jsp" %>
-<div>
-			<div class="div1">${category} 게시글 목록</div>
+<div class="div-main">
+<div class="div-left"></div>
+<div class="div-table">
+			<div class="div1">${titlecategory} 게시글 목록</div>
 			<div class="div2">
 				<div class="div3">Total : ${total}</div>
 				<div class="div4">
@@ -55,8 +68,10 @@
 							<option value="name">글쓴이</option>
 							<option value="content">내용</option>
 						</select>
+						<c:if test="${not empty searchCategory}">
+							<input type="hidden" name="category" id="category" value="${searchCategory}">
+						</c:if>						
 						<input type="text" name="searchText" id="searchText">
-						<input type="hidden" name="category" id="category" value="${searchCategory}">
 						<button type="submit">검색</button>
 					</form>
 				</div>
@@ -88,16 +103,18 @@
 		</c:forEach>
 	</table>
 	
+	
 	<div style="width:90%; margin-top:5px; text-align:center;">
 		<c:forEach var="i" begin="1" end="${totalPage}">
-			<a href="boardList.do?viewPage=${i}">${i}</a>
+			<a href="boardList.do?viewPage=${i} <c:if test="${not empty searchCategory}">&category=${searchCategory}</c:if>">${i}</a>
 		</c:forEach>
 	</div>
-	
+	<% if(UserID != null) {%>
 	<div style="width:100%; margin-top:5px; text-align:right;">
 		<button type="button" onclick="location='boardWrite.do'">글쓰기</button>
 	</div>
+	<% } %>
 </div>
-
+</div>
 </body>
 </html>

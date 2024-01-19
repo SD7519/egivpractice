@@ -1,5 +1,7 @@
 package main.service.web;
 
+import java.sql.ResultSet;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
@@ -57,12 +59,15 @@ public class MemberController {
 	@ResponseBody
 	public String loginMemeber(MemberVO vo, HttpSession session) throws Exception {
 		
+
 		int result = memberService.loginMember(vo);
+		
 		String msg;
 		
 		if(result == 1) {
 			msg = "ok";
 			session.setAttribute("userid", vo.getUserid());
+			System.out.println(vo.getName());
 		} else {
 			msg ="fail";
 		}
@@ -76,5 +81,10 @@ public class MemberController {
 		session.removeAttribute("userid");
 		
 		return "redirect:main.do";
+	}
+	
+	@RequestMapping("/test.do")
+	public String test() {
+		return "board/test";
 	}
 }
