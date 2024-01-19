@@ -17,6 +17,9 @@
 	div {
 		width: 80%
 	}
+	table {
+		border-collapse:collapse;
+	}
 	.div-banner {
 		text-align: center;
 		border: 1px solid #000000;
@@ -24,17 +27,16 @@
 	}
 	.div-main{
 		display: flex;
-		border: 1px solid #000000;
 		margin-top: 10px;
 	}
 	.main1 {
-		background-color: yellow;
 		width: 50%;
+		border: 1px solid #000000;
 		height: 200px;
 	}
 	.main2 {
-		background-color: green;
 		width: 50%;
+		border: 1px solid #000000;
 		height: 200px;
 	}
 	.table-1 {
@@ -53,19 +55,19 @@
 		<table class="table-1">
 		<caption>최근 게시물</caption>
 			<tr>
-				<td><a href="">가</a></td>
+				<td><a href="">◇ 가</a></td>
 			</tr>
 			<tr>
-				<td><a href="">가</a></td>
+				<td><a href="">◇ 가</a></td>
 			</tr>
 			<tr>
-				<td><a href="">가</a></td>
+				<td><a href="">◇ 가</a></td>
 			</tr>
 			<tr>
-				<td><a href="">가</a></td>
+				<td><a href="">◇ 가</a></td>
 			</tr>
 			<tr>
-				<td><a href="">가</a></td>
+				<td><a href="">◇ 가</a></td>
 			</tr>
 		</table>
 	</div>

@@ -78,4 +78,17 @@ public class BoardController {
 		
 		return "board/boardList";
 	}
+	
+	@RequestMapping("/boardDetail.do")
+	public String boardDetial(BoardVO vo, ModelMap model) throws Exception {
+		
+		BoardVO boardVO = boardService.boardDetail(vo.getUnq());
+		
+		String content = boardVO.getContent(); // \n
+		boardVO.setContent(content.replace("\n", "<br>"));
+		
+		model.addAttribute("boardVO", boardVO);
+		
+		return "board/boardDetail";
+	}
 }

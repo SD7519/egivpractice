@@ -1,7 +1,5 @@
 package main.service.web;
 
-import java.sql.ResultSet;
-
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
@@ -83,8 +81,4 @@ public class MemberController {
 		return "redirect:main.do";
 	}
 	
-	@RequestMapping("/test.do")
-	public String test() {
-		return "board/test";
-	}
 }

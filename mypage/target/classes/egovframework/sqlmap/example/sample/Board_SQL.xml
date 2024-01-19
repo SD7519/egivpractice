@@ -50,9 +50,13 @@
 				</isNull>
 				<isNotNull property="category">
 					and $searchGubun$ like '%' || #searchText# || '%'
-				</isNotNull>
+				</isNotNull> 
 			</isNotNull>
 		</isNotNull>
+	</select>
+	
+	<select id="boardDAO.selectBoardDetail" resultClass="boardVO">
+		select unq, title, name, content, to_char(rdate, 'yyyy-mm-dd') rdate, category from sboard where unq=#unq#
 	</select>
 	
 </sqlMap>

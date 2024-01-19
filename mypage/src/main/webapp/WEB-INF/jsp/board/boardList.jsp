@@ -93,7 +93,7 @@
 				<td><c:out value="${cnt}"/></td>
 		   <!-- <td><c:out value="${result.category}"/></td> -->
 				<td align="left">
-					<a href="boardDetail.do?uno=${result.uno}"><c:out value="${result.title}"/></a>
+					<a href="boardDetail.do?unq=${result.unq}"><c:out value="${result.title}"/></a>
 				</td>
 				<td><c:out value="${result.name}"/></td>
 				<td><c:out value="${result.rdate}"/></td>
