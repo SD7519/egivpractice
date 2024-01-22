@@ -72,7 +72,6 @@
 		</table>
 	</div>
 	<div class="main2">
-		
 	</div>
 </div>
 </body>

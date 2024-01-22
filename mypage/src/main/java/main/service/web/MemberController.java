@@ -4,6 +4,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -54,20 +55,20 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value = "loginMember.do")
+	
 	@ResponseBody
-	public String loginMemeber(MemberVO vo, HttpSession session) throws Exception {
+	public String loginMemeber(MemberVO vo, HttpSession session, ModelMap model) throws Exception {
 		
-
-		int result = memberService.loginMember(vo);
+		MemberVO memVO = memberService.loginMember(vo);
+		System.out.println(memVO.getName());
 		
-		String msg;
+		String msg = "fail";
 		
-		if(result == 1) {
+		model.addAttribute("userVO",memVO);
+		if(memVO != null) {
 			msg = "ok";
+			session.setAttribute("username", memVO.getName());
 			session.setAttribute("userid", vo.getUserid());
-			System.out.println(vo.getName());
-		} else {
-			msg ="fail";
 		}
 		
 		return msg;
@@ -76,9 +77,58 @@ public class MemberController {
 	@RequestMapping(value = "/logout.do")
 	public String logout(HttpSession session) throws Exception {
 		
-		session.removeAttribute("userid");
+		session.removeAttribute("username");
 		
 		return "redirect:main.do";
 	}
 	
+	@RequestMapping("/memberDetail.do")
+	public String selectMemberDetail(MemberVO vo, ModelMap model) throws Exception {
+		
+		MemberVO memberVO = memberService.selectMemberDetail(vo.getUserid());
+		
+		model.addAttribute("MemberVO",memberVO);
+		
+		return "member/memberDetail";
+	}
+	
+	@RequestMapping("/checkPass.do")
+	public String checkPass() {
+		return "member/checkPass";
+	}
+	
+	@RequestMapping("/modifyPass.do")
+	@ResponseBody
+	public String modifyPass(MemberVO vo) throws Exception {
+		
+		String msg = "";
+		int result = memberService.modifyPass(vo);
+		
+		if(result == 1) {
+			msg = "ok";
+		} else {
+			msg = "fail";
+		}
+		
+		return msg;
+	}
+	
+	@RequestMapping("/modifyPassView.do")
+	public String modifyPassView() {
+		return "member/modifyPassView";
+	}
+	
+	@RequestMapping("/modifyPassSave.do")
+	public String modifyPassSave(MemberVO vo) throws Exception {
+		
+		int result = memberService.modifyPassSave(vo);
+		String msg = "";
+		if(result == 1) {
+			msg = "ok";
+		} else {
+			msg = "fail";
+		}
+		
+		return msg;
+	}
 }

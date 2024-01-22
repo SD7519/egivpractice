@@ -24,15 +24,18 @@
 </style>
 
 <body>
-<% String UserID = (String) session.getAttribute("userid"); %>
+<%
+String UserName = (String) session.getAttribute("username");
+String UserID = (String) session.getAttribute("userid");
+%>
 <div class="top_menu">
 	<div style="text-align: center; width: 100%;"><a href="/main.do">홈</a></div>
 	<div style="text-align: right; width: 100%;">
-	<% if(UserID == null) { %>
+	<% if(UserName == null) { %>
 				<a href="/login.do">로그인</a>
 				<a href="/register.do">회원가입</a>
 	<%} else {%>
-				<a href="/memberDetail.do" style="color: blue;"><%out.print(UserID);%>님</a>
+				<a href="/memberDetail.do?userid=<%out.print(UserID);%>" style="color: blue;"><%out.print(UserName);%>님</a>
 				<a href="/logout.do">로그아웃</a>				
 	<%} %>
 	</div>

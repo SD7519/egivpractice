@@ -4,15 +4,13 @@
 <%@ taglib prefix="c"      uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn"   uri="http://java.sun.com/jsp/jstl/functions" %>
 
-<% pageContext.setAttribute("newline", "\n"); %>
 
-<c:set var="content" value="${fn:replace(detailVO.content, newline, '<br>') }"/>
 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>게시글 상세 화면</title>
+<title>회원정보</title>
 <script src="/script/jquery-3.7.1.js"></script>
 <script src="/script/jquery-3.7.1.min.js"></script>
 </head>
@@ -47,32 +45,34 @@
 <div class="div-table">
 	<form id="frm">
 		<table>
-			<caption>게시글 상세</caption>
+			<caption>회원 정보</caption>
 			<tr>
-				<th width="20%">제목</th>
-				<td width="80%">${detailVO.title}</td>
+				<th width="30%">ID</th>
+				<td>${MemberVO.userid}</td>
 			</tr>
 			<tr>
-				<th>카테고리</th>
-				<td>${boardCT}</td>
+				<th>비밀번호</th>
+				<td><button type="button" onclick="location='checkPass.do?userid=${MemberVO.userid}'">비밀번호 변경</button></td>
 			</tr>
 			<tr>
-				<th>글쓴이</th>
-				<td><c:out value="${detailVO.name}"/></td>
+				<th>이메일</th>
+				<td>${MemberVO.email}</td>
 			</tr>
 			<tr>
-				<th>내용</th>
-				<td height="50">${detailVO.content}</td>
+				<th>이름</th>
+				<td>${MemberVO.name}</td>
 			</tr>
 			<tr>
-				<th>등록일</th>
-				<td>${detailVO.rdate}</td>
+				<th>전화번호</th>
+				<td>${MemberVO.phonenum}</td>
+			</tr>
+			<tr>
+				<th>생년월일</th>
+				<td>${MemberVO.birth}</td>
 			</tr>
 			<tr>
 				<th colspan="2">
-					<button type="button" onclick="location='boardList.do?category=${detailVO.category}'">목록</button>
-					<button type="button" onclick="location='boardModifyWrite.do?uno=${detailVO.unq}'">수정</button>
-					<button type="button" onclick="location='passWrite.do?uno=${detailVO.unq}'">삭제</button>
+					<button type="button" onclick="location='memberModifyWrite.do?uno=${MemberVO.userid}'">수정</button>
 				</th>
 			</tr>
 		</table>

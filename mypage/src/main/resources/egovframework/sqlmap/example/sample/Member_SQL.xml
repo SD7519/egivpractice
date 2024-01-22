@@ -12,10 +12,30 @@
 				(#userid#, #userpass#, #email#, #name#, #birth#, #phonenum#)
 	</insert>
 	
+	<select id="memberDAO.loginMember" resultClass="memberVO">
+		SELECT name FROM pmember
+				WHERE
+					userid = #userid# AND userpass = #userpass#
+	</select>
+	<!--
 	<select id="memberDAO.loginMember" resultClass="java.lang.Integer">
 		SELECT COUNT(*) FROM pmember
 				WHERE
 					userid = #userid# AND userpass = #userpass#
+	</select>
+	-->
+	<select id="memberDAO.selectMemberDetail" resultClass="memberVO">
+		SELECT userid, email, name, phonenum, to_char(birth, 'yyyy-mm-dd') birth
+			FROM pmember
+				WHERE userid = #userid#
+	</select>
+	
+	<select id="memberDAO.modifyPass" resultClass="java.lang.Integer">
+		SELECT COUNT(*) FROM pmember WHERE userid = #userid# AND userpass = #userpass# 
+	</select>
+	
+	<select id="memberDAO.modifyPassSave" resultClass="java.lang.Integer">
+		UPDATE pmember SET userpass = #userpass# WHERE userid = #userid#
 	</select>
 	
 </sqlMap>

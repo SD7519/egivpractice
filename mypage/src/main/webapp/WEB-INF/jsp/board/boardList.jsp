@@ -50,6 +50,7 @@
 	}
 	.div-main {
 		display: flex;
+		height: 100%;
 	}
 </style>
 <body>
@@ -109,7 +110,7 @@
 			<a href="boardList.do?viewPage=${i} <c:if test="${not empty searchCategory}">&category=${searchCategory}</c:if>">${i}</a>
 		</c:forEach>
 	</div>
-	<% if(UserID != null) {%>
+	<% if(UserName != null) {%>
 	<div style="width:100%; margin-top:5px; text-align:right;">
 		<button type="button" onclick="location='boardWrite.do'">글쓰기</button>
 	</div>

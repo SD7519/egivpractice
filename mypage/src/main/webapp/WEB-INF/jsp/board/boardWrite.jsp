@@ -51,6 +51,8 @@ function fn_save() {
 	}
 	$("#pass").val( $.trim($("#pass").val()) );
 	
+	var caterory = $("#category").val();
+	
 	var formData = $("#frm").serialize();
 	  
 	$.ajax({
@@ -59,9 +61,9 @@ function fn_save() {
 		url:"boardWriteSave.do",
 		dataType:"text", // 리턴 타입
 		success: function (data) {
-			if(data == "ok") {
+			if(data != null) {
 				alert("저장완료");
-				location = "boardList.do";
+				location = "boardList.do?category="+ data;
 			} else {
 				alert("저장실패");
 			}
@@ -88,11 +90,20 @@ function fn_save() {
 			<tr>
 				<th><label for="category">카테고리</label></th>
 				<td>
-				<select name="category">
-					<option value="b">일반</option>
-					<option value="g">고민</option>
-					<option value="h">취미</option>
-				</select>
+				<%if(UserName.equals("관리자")){ %>
+					<select name="category">
+						<option value="b">일반</option>
+						<option value="g">고민</option>
+						<option value="h">취미</option>
+						<option value="n">공지</option>
+					</select>
+					<%} else {%>
+					<select name="category">
+						<option value="b">일반</option>
+						<option value="g">고민</option>
+						<option value="h">취미</option>
+					</select>
+					<%} %>
 				</td>
 			</tr>
 			<tr>
@@ -101,7 +112,7 @@ function fn_save() {
 			</tr>
 			<tr>
 				<th>글쓴이</th>
-				<td><input type="text" name="name" id="name" value="<%out.print(UserID);%>" readonly></td>
+				<td><input type="text" name="name" id="name" value="<%out.print(UserName);%>" readonly></td>
 			</tr>
 			<tr>
 				<th>내용</th>

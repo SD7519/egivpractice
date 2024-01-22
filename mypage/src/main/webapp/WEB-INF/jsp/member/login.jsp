@@ -31,7 +31,6 @@ $( function() {
     	}
     	$("#userid").val(userid);
     	$("#userpass").val(userpass);
-    	
     	//var formData = $("#frm").serialize();
     	
     	$.ajax({

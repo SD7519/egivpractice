@@ -30,7 +30,12 @@ public class BoardServiceImpl implements BoardService{
 	}
 
 	@Override
-	public BoardVO boardDetail(int unq) throws Exception {
+	public BoardVO selectBoardDetail(int unq) throws Exception {
 		return boardDAO.selectBoardDetail(unq);
+	}
+
+	@Override
+	public int updateBoardHits(int unq) throws Exception {
+		return boardDAO.updateBoardHits(unq);
 	}
 }

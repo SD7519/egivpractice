@@ -19,8 +19,23 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	@Override
-	public int loginMember(MemberVO vo) throws Exception {
+	public MemberVO loginMember(MemberVO vo) throws Exception {
 		return memberDAO.loginMember(vo);
+	}
+
+	@Override
+	public MemberVO selectMemberDetail(String userid) throws Exception {
+		return memberDAO.selectMemberDetail(userid);
+	}
+
+	@Override
+	public int modifyPass(MemberVO vo) throws Exception {
+		return memberDAO.modifyPass(vo);
+	}
+
+	@Override
+	public int modifyPassSave(MemberVO vo) throws Exception {
+		return memberDAO.modifyPassSave(vo);
 	}
 	
 }

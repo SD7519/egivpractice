@@ -1,7 +1,5 @@
 package main.service;
 
-import java.util.Date;
-
 public class BoardVO {
 	private int unq;
 	private String title;
@@ -9,7 +7,7 @@ public class BoardVO {
 	private String name;
 	private String content;
 	private int hits;
-	private Date rdate;
+	private String rdate;
 	private String category;
 	
 	private int viewPage = 1;
@@ -55,12 +53,7 @@ public class BoardVO {
 	public void setHits(int hits) {
 		this.hits = hits;
 	}
-	public Date getRdate() {
-		return rdate;
-	}
-	public void setRdate(Date rdate) {
-		this.rdate = rdate;
-	}
+
 	public String getCategory() {
 		return category;
 	}
@@ -96,5 +89,11 @@ public class BoardVO {
 	}
 	public void setSearchText(String searchText) {
 		this.searchText = searchText;
+	}
+	public String getRdate() {
+		return rdate;
+	}
+	public void setRdate(String rdate) {
+		this.rdate = rdate;
 	}
 }

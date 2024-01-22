@@ -30,7 +30,7 @@ public class BoardController {
 		String msg;
 		String result = boardService.boardWriteSave(vo);
 		if(result == null) {
-			msg = "ok";
+			msg = vo.getCategory();
 		} else {
 			msg = "fail";
 		}
@@ -80,14 +80,26 @@ public class BoardController {
 	}
 	
 	@RequestMapping("/boardDetail.do")
-	public String boardDetial(BoardVO vo, ModelMap model) throws Exception {
+	public String selectBoardDetail(BoardVO vo, ModelMap model) throws Exception {
 		
-		BoardVO boardVO = boardService.boardDetail(vo.getUnq());
+		boardService.updateBoardHits(vo.getUnq());
+		
+		BoardVO boardVO = boardService.selectBoardDetail(vo.getUnq());
 		
 		String content = boardVO.getContent(); // \n
 		boardVO.setContent(content.replace("\n", "<br>"));
 		
-		model.addAttribute("boardVO", boardVO);
+		String categy = "";
+		String ctgory = boardVO.getCategory();
+		switch(ctgory) {
+			case "b" : categy = "일반"; break;
+			case "g" : categy = "고민"; break;
+			case "h" : categy = "취미"; break;
+			case "n" : categy = "공지"; break;
+		}
+		
+		model.addAttribute("boardCT", categy);
+		model.addAttribute("detailVO",boardVO);
 		
 		return "board/boardDetail";
 	}
