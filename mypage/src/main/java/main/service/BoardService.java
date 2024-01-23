@@ -8,4 +8,6 @@ public interface BoardService {
 	public int selectBoardTotal(BoardVO vo) throws Exception;
 	public BoardVO selectBoardDetail(int unq) throws Exception;
 	public int updateBoardHits(int unq) throws Exception;
+	public BoardVO selectModifyBoard(int unq) throws Exception;
+	public int boardModifySave(int unq) throws Exception;
 }

@@ -38,4 +38,14 @@ public class BoardServiceImpl implements BoardService{
 	public int updateBoardHits(int unq) throws Exception {
 		return boardDAO.updateBoardHits(unq);
 	}
+
+	@Override
+	public BoardVO selectModifyBoard(int unq) throws Exception {
+		return boardDAO.selectModifyBoard(unq);
+	}
+
+	@Override
+	public int boardModifySave(int unq) throws Exception {
+		return boardDAO.updateModifyBoard(unq);
+	}
 }

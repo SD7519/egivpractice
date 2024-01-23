@@ -68,7 +68,7 @@ $( function() {
 		padding: 3px;
 	}
 	.input1 {
-		width:98%;
+		width:95%;
 	}
 	caption {
 		font-weight: bold;	

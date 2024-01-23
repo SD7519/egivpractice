@@ -71,7 +71,7 @@
 			<tr>
 				<th colspan="2">
 					<button type="button" onclick="location='boardList.do?category=${detailVO.category}'">목록</button>
-					<button type="button" onclick="location='boardModifyWrite.do?uno=${detailVO.unq}'">수정</button>
+					<button type="button" onclick="location='boardModifyWrite.do?unq=${detailVO.unq}'">수정</button>
 					<button type="button" onclick="location='passWrite.do?uno=${detailVO.unq}'">삭제</button>
 				</th>
 			</tr>

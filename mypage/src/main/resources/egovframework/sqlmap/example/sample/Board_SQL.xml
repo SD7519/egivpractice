@@ -70,5 +70,13 @@
 	<update id="boardDAO.updateBoardHits">
 		update sboard set hits=hits+1 where unq=#unq#
 	</update>
+
+	<select id="boardDAO.selectModifyBoard" resultClass="BoardVO">
+		select unq, title, name, content, category from sboard where unq=#unq#
+	</select>
+	
+	<update id="boardDAO.updateModifyBoard">
+		update sboard set title=#title#, content=#content# where unq=#unq# and password=#password#
+	</update>
 	
 </sqlMap>

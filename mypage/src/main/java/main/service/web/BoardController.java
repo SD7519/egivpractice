@@ -103,4 +103,38 @@ public class BoardController {
 		
 		return "board/boardDetail";
 	}
+	
+	@RequestMapping("/boardModifyWrite.do")
+	public String selectModifyBoard(int unq, ModelMap model) throws Exception {
+		
+		BoardVO boardVO = boardService.selectModifyBoard(unq);
+		
+		String categy = "";
+		String ctgory = boardVO.getCategory();
+		switch(ctgory) {
+			case "b" : categy = "일반"; break;
+			case "g" : categy = "고민"; break;
+			case "h" : categy = "취미"; break;
+			case "n" : categy = "공지"; break;
+		}
+		model.addAttribute("ct",categy);
+		model.addAttribute("BoardVO",boardVO);
+		
+		return "board/boardModifyWrite";
+	}
+	
+	@RequestMapping("/boardModifySave.do")
+	public String updateModifyBoard(int unq) throws Exception {
+		
+		int result = boardService.updateBoardHits(unq);
+		
+		
+		if(result == 1) {
+			
+		} else {
+			
+		}
+		
+		return "";
+	}
 }

@@ -23,9 +23,9 @@
 		border-collapse:collapse;
 	}
 	.div-banner {
-		text-align: center;
+		text-align: left;
 		border: 1px solid #000000;
-		height: 200px;
+		height: 400px;
 	}
 	.div-main{
 		display: flex;
@@ -49,7 +49,7 @@
 .slideshow-container {
 	width: 100%;
 	height: 100%;
- 	position: relative;
+ 	position: inherit;
 	overflow: hidden;
 	}
 
