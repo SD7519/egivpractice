@@ -50,8 +50,8 @@ function fn_pass() {
 	*/
 	var userpass = $("#userpass").val();
 	var userid = $("#userid").val();
-	uesrpass = $.trim(userpass);
-	uesrid = $.trim(userid);
+	userpass = $.trim(userpass);
+	userid = $.trim(userid);
 	
 	if(userpass == ""){
 		alert("비밀번호를 입력해주세요.");
@@ -90,8 +90,10 @@ function fn_pass() {
 			<caption>비밀번호 확인</caption>
 			<tr>
 				<th width="30%">비밀번호</th>
-				<td><input type="password" name="userpass" id="userpass"></td>
-				<td><input type="hidden" name="userid" id="userid" value="${userid}"></td>
+				<td>
+					<input type="password" name="userpass" id="userpass">
+					<input type="hidden" name="userid" id="userid" value="${userid}">
+				</td>
 			</tr>
 			<tr>
 				<th colspan="2">

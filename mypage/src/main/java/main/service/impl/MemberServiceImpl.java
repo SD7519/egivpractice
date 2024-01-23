@@ -34,7 +34,7 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	@Override
-	public int modifyPassSave(MemberVO vo) throws Exception {
+	public String modifyPassSave(MemberVO vo) throws Exception {
 		return memberDAO.modifyPassSave(vo);
 	}
 	

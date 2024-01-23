@@ -50,9 +50,9 @@ function fn_psave() {
 	var userpass = $("#userpass").val();
 	var userpass2 = $("#userpass2").val();
 	var userid = $("#userid").val();
-	uesrpass = $.trim(userpass);
-	uesrpass2 = $.trim(userpass2);
-	uesrid = $.trim(userid);
+	userpass = $.trim(userpass);
+	userpass2 = $.trim(userpass2);
+	userid = $.trim(userid);
 	
 	if(userpass == ""){
 		alert("비밀번호를 입력해주세요.");
@@ -60,20 +60,28 @@ function fn_psave() {
 		return false;
 	}
 	if(userpass2 == ""){
-		alert("비밀번호를 입력해주세요.");
+		alert("확인 비밀번호를 입력해주세요.");
 		$("#userpass2").focus();
 		return false;
 	}
+	
+	if(userpass !== userpass2){
+		alert("비밀번호가 일치하지 않습니다.");
+		return false;
+	}
+	
 	$("#userpass").val(userpass);
 	$("#userpass2").val(userpass2);
+	
+	
 		  
 	$.ajax({
 		type:"POST",
 		data:"userid=" + userid + "&userpass=" + userpass,
 		url:"modifyPassSave.do",
 		dataType:"text", // 리턴 타입
-		success: function (data) {
-			if(data == "ok") {
+		success: function (msg) {
+			if(msg == "ok") {
 				alert("비밀번호가 변경되었습니다.");
 				location = "memberDetail.do?userid=" + userid;
 			} else {
@@ -98,8 +106,10 @@ function fn_psave() {
 			<caption>비밀번호 확인</caption>
 			<tr>
 				<th width="30%">새로운 비밀번호</th>
-				<td><input type="password" name="userpass" id="userpass"></td>
-				<td><input type="text" name="userid" id="userid" value="${userid}"></td>
+				<td>
+					<input type="password" name="userpass" id="userpass">
+					<input type="hidden" name="userid" id="userid" value="${userid}">
+				</td>
 			</tr>
 			<tr>
 				<th width="30%">비밀번호 재입력</th>

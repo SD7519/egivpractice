@@ -34,7 +34,7 @@
 		SELECT COUNT(*) FROM pmember WHERE userid = #userid# AND userpass = #userpass# 
 	</select>
 	
-	<select id="memberDAO.modifyPassSave" resultClass="java.lang.Integer">
+	<select id="memberDAO.modifyPassSave" resultClass="memberVO">
 		UPDATE pmember SET userpass = #userpass# WHERE userid = #userid#
 	</select>
 	

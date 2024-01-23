@@ -24,8 +24,8 @@ public class MemberDAO extends EgovAbstractDAO{
 		return (int) select("memberDAO.modifyPass", vo);
 	}
 
-	public int modifyPassSave(MemberVO vo) {
-		return (int) select("memberDAO.modifyPassSave", vo);
+	public String modifyPassSave(MemberVO vo) {
+		return (String) select("memberDAO.modifyPassSave", vo);
 	}
 
 }

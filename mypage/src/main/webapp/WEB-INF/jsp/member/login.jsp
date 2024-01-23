@@ -18,7 +18,7 @@ $( function() {
     	var userid = $("#userid").val();
     	var userpass = $("#userpass").val();
     	userid = $.trim(userid);
-    	uesrpass = $.trim(userpass);
+    	userpass = $.trim(userpass);
     	if(userid == ""){
     		alert("아이디를 입력해주세요.");
     		$("#userid").focus();

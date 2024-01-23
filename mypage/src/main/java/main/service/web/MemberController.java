@@ -55,7 +55,6 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value = "loginMember.do")
-	
 	@ResponseBody
 	public String loginMemeber(MemberVO vo, HttpSession session, ModelMap model) throws Exception {
 		
@@ -119,15 +118,18 @@ public class MemberController {
 	}
 	
 	@RequestMapping("/modifyPassSave.do")
+	@ResponseBody
 	public String modifyPassSave(MemberVO vo) throws Exception {
 		
-		int result = memberService.modifyPassSave(vo);
+		String result = memberService.modifyPassSave(vo);
 		String msg = "";
-		if(result == 1) {
+		System.out.println(result);
+		if(result == null) {
 			msg = "ok";
 		} else {
 			msg = "fail";
 		}
+		System.out.println(msg);
 		
 		return msg;
 	}
