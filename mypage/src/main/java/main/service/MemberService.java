@@ -8,4 +8,5 @@ public interface MemberService {
 	public int modifyPass(MemberVO vo) throws Exception;
 	public String modifyPassSave(MemberVO vo) throws Exception;
 	public int updateMember(MemberVO vo) throws Exception;
+	public int deleteMember(MemberVO vo) throws Exception;
 }

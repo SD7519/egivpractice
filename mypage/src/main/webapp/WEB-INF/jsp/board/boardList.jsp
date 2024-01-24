@@ -27,6 +27,7 @@
 	.div2 {
 		display:flex;
 		width: 100%;
+		justify-content: space-between;
 	}
 	.div3 {
 		font-size:8pt;
@@ -44,6 +45,7 @@
 		border:1px solid #cccccc;
 		width:10%;
 		margin-right:10px;
+		height: 500px;
 	}
 	.div-table {
 		width:90%;
@@ -57,7 +59,9 @@
 <%@ include file="../include/topmenu.jsp" %>
 <%@ include file="../include/boardmenu.jsp" %>
 <div class="div-main">
-<div class="div-left"></div>
+<div class="div-left">
+	대충 사이드바
+</div>
 <div class="div-table">
 			<div class="div1">${titlecategory} 게시글 목록</div>
 			<div class="div2">

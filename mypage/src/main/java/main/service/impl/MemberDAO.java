@@ -32,5 +32,9 @@ public class MemberDAO extends EgovAbstractDAO{
 		return update("memberDAO.updateMember", vo);
 	}
 
+	public int deleteMember(MemberVO vo) {
+		return delete("memberDAO.deleteMember", vo);
+	}
+
 }
 

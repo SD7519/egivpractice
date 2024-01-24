@@ -149,4 +149,23 @@ public class MemberController {
 		
 		return cnt + "";
 	}
+	
+	@RequestMapping("/memberDelete.do")
+	@ResponseBody
+	public String deleteMember(MemberVO vo, HttpSession session) throws Exception {
+		
+		int result = memberService.deleteMember(vo);
+		int cnt = 0;
+		
+		if(result == 1) {
+			cnt = 1;
+		} else {
+			cnt = -1;
+		}
+		
+		session.removeAttribute("username");
+		session.removeAttribute("userid");
+		
+		return cnt + "";
+	}
 }

@@ -14,31 +14,32 @@
 	* {
 		margin:0 auto;
 	}
-	div {
-		width: 70%
+	header{
+		width: 1250px;
 	}
 	a {
 		text-decoration-line: none;
 		color: black;
 	}
 </style>
-
+<script>
+</script>
 <body>
 <%
 String UserName = (String) session.getAttribute("username");
 String UserID = (String) session.getAttribute("userid");
 %>
-<div class="top_menu">
-	<div style="text-align: center; width: 100%;"><a href="/main.do">홈</a></div>
+<header>
+	<div style="text-align: center; width: 100%;"><a href="/main.do">대충 로고</a></div>
 	<div style="text-align: right; width: 100%;">
 	<% if(UserName == null) { %>
 				<a href="/login.do">로그인</a>
 				<a href="/register.do">회원가입</a>
 	<%} else {%>
 				<a href="/memberDetail.do?userid=<%out.print(UserID);%>" style="color: blue;"><%out.print(UserName);%>님</a>
-				<a href="/logout.do">로그아웃</a>				
+				<a href="/logout.do" onclick="alert('로그아웃 되었습니다.')">로그아웃</a>				
 	<%} %>
 	</div>
-</div>
+</header>
 </body>
 </html>

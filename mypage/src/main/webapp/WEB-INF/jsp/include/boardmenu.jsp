@@ -19,7 +19,7 @@
 </style>
 </head>
 <body>
-<div>
+<header>
 	<table class="boardmenu-table">
 		<tr>
 			<th width="25%"><button id="board_btn" onclick="location='/boardList.do?category=n'">공지사항</button></th>
@@ -28,6 +28,6 @@
 			<th width="25%"><button id="board_btn" onclick="location='/boardList.do?category=h'">취미 게시판</button></th>
 		</tr>
 	</table>
-</div>
+</header>
 </body>
 </html>

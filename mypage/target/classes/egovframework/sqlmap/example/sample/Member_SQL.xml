@@ -42,4 +42,8 @@
 		UPDATE pmember SET email=#email#, name=#name#, phonenum=#phonenum#, birth=#birth# WHERE userid=#userid#
 	</update>
 	
+	<delete id="memberDAO.deleteMember">
+		DELETE FROM pmember WHERE userid = #userid#
+	</delete>
+	
 </sqlMap>

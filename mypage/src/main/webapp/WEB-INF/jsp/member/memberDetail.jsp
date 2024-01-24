@@ -59,8 +59,8 @@ function fn_mem() {
 	$("#name").val( $.trim($("#name").val()) );
 	
 	var formData = $("#frm").serialize();
-	
-	var userid = ${MemberVO.userid};
+
+	var userid = "${MemberVO.userid}";
 	
 	
 	if(confirm("수정하시겠습니까?") == true){
@@ -75,6 +75,35 @@ function fn_mem() {
 					location = "memberDetail.do?userid="+userid;
 				} else {
 					alert("수정실패");
+				}
+			},
+			error:function() {
+					alert("오류발생");			
+			}
+		});
+	} else {
+		alert("취소되었습니다.");
+		return false;
+	}
+		
+}
+
+function fn_exit() {	
+	
+	var userid = "${MemberVO.userid}";
+
+	if(confirm("탈퇴하시겠습니까?") == true){
+		$.ajax({
+			type:"POST",
+			data:"userid=" + userid,
+			url:"memberDelete.do",
+			dataType:"text", // 리턴 타입
+			success: function (data) {
+				if(data == "1") {
+					alert("탈퇴완료");
+					location = "main.do";
+				} else {
+					alert("관리자에게 문의주세요.");
 				}
 			},
 			error:function() {
@@ -124,6 +153,7 @@ function fn_mem() {
 			<tr>
 				<th colspan="2">
 					<button type="button" onclick="fn_mem(); return false;">수정</button>
+					<button type="button" onclick="fn_exit(); return false;">탈퇴</button>
 				</th>
 			</tr>
 		</table>

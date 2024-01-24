@@ -40,7 +40,7 @@ $( function() {
     		dataType:"text", // 리턴 타입
     		success: function (data) {
     			if(data == "ok") {
-    				alert(userid+"님 로그인 되었습니다.");
+    				alert(userid +"님 로그인 되었습니다.");
     				location = "main.do";
     			} else {
     				alert("아이디 또는 비밀번호를 확인해주세요.");
