@@ -58,9 +58,9 @@ $( function() {
 		margin: 0 auto;
 	}
 	.register-table{
-		width:20%;
+		width:200px;
 		border-collapse:collapse;
-		height: 50%;
+		height: 100px;
 		text-align: center;
 	}
 	.register-th, .register-td {
@@ -69,6 +69,7 @@ $( function() {
 	}
 	.input1 {
 		width:95%;
+		height: 95%;
 	}
 	caption {
 		font-weight: bold;	
@@ -76,7 +77,7 @@ $( function() {
 		text-align: center;
 	}
 	.div_button {
-		width:600px;
+		width:200px;
 		text-align:center;
 		margin-top:5px;
 	}

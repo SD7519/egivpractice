@@ -15,7 +15,7 @@
 		margin:0 auto;
 	}
 	header{
-		width: 1250px;
+		width: 1000px;
 	}
 	a {
 		text-decoration-line: none;

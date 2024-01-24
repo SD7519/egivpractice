@@ -22,7 +22,8 @@
 	.div1 {
 		width: 100%;
 		text-align:center;
-		font-size:15pt;'
+		font-size:15pt;
+		background-color: #bdbdbd;
 	}
 	.div2 {
 		display:flex;
@@ -41,49 +42,19 @@
 		margin: 0;
 		text-align: right;
 	}
-	.div-left {
-		border:1px solid #cccccc;
-		width:10%;
-		margin-right:10px;
-		height: 500px;
-		text-align: center;
-	}
 	.div-table {
 		width:90%;
 	}
 	.div-main {
 		display: flex;
-		width: 1250px;
-	}
-	.side-bar{
-		width: 100%;
-	}
-	.side-caption{
-		margin-top: 5px;
-		margin-bottom: 5px;
+		width: 1000px;
 	}
 </style>
 <body>
 <%@ include file="../include/topmenu.jsp" %>
 <!-- <%@ include file="../include/boardmenu.jsp" %> -->
 <div class="div-main">
-<div class="div-left">
-	<table>
-	<caption class="side-caption">대충 사이드바</caption>
-		<tr>
-			<td><a href="/boardList.do?category=n">공지사항</a></td>
-		</tr>
-		<tr>
-			<td><a href="/boardList.do?category=b">일반 게시판</a></td>
-		</tr>
-		<tr>
-			<td><a href="/boardList.do?category=g">고민 게시판</a></td>
-		</tr>
-		<tr>
-			<td><a href="/boardList.do?category=h">취미 게시판</a></td>
-		</tr>
-	</table>
-</div>
+<%@ include file="../include/sidebar.jsp" %>
 <div class="div-table">
 			<div class="div1">${titlecategory}</div>
 			<div class="div2">

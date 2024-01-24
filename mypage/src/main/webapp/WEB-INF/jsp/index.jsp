@@ -26,12 +26,12 @@
 		text-align: left;
 		border: 1px solid #000000;
 		height: 200px;
-		width: 1250px;
+		width: 1000px;
 	}
 	.div-main{
 		display: flex;
 		margin-top: 10px;
-		width: 1250px;
+		width: 1000px;
 	}
 	.main1 {
 		width: 50%;
@@ -52,7 +52,7 @@
     	object-fit:cover;
 	}
 	header {
-		width: 1250px;
+		width: 1000px;
 	}
 </style>
 <script type="text/javascript">

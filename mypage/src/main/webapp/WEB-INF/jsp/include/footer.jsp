@@ -17,7 +17,7 @@ footer {
 </style>
 <body>
 <footer>
-	<div style="padding-left: 100px; padding-top: 35px;">
+	<div style="padding-top: 35px;">
 		<p>Copyright@어쩌구저쩌구</p>	
 	</div>
 </footer>

@@ -33,7 +33,7 @@
 	}
 	.div-main {
 		display: flex;
-		height: 100%;
+		width: 1000px;
 	}
 </style>
 <script>
@@ -96,10 +96,9 @@ function fn_psave() {
 }
 </script>
 <%@ include file="../include/topmenu.jsp" %>
-<%@ include file="../include/boardmenu.jsp" %>
 <body>
 <div class="div-main">
-<div class="div-left"></div>
+<%@ include file="../include/sidebar.jsp" %>
 <div class="div-table">
 	<form id="frm">
 		<table>
