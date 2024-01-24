@@ -11,10 +11,13 @@
 		padding: 0;
 		background-color: silver;
 		cursor: pointer;
+		margin: 0;
 	}
 	.boardmenu-table {
 		width: 100%;
 		padding: 0;
+		margin: 0;
+		border: none;
 	}
 </style>
 </head>

@@ -15,7 +15,7 @@
 		border-collapse:collapse;
 		width: 100%;
 	}
-	th,td {
+	.list-table > th,td {
 		border:1px solid #cccccc;
 		padding: 3px;
 	}
@@ -46,24 +46,46 @@
 		width:10%;
 		margin-right:10px;
 		height: 500px;
+		text-align: center;
 	}
 	.div-table {
 		width:90%;
 	}
 	.div-main {
 		display: flex;
-		height: 100%;
+		width: 1250px;
+	}
+	.side-bar{
+		width: 100%;
+	}
+	.side-caption{
+		margin-top: 5px;
+		margin-bottom: 5px;
 	}
 </style>
 <body>
 <%@ include file="../include/topmenu.jsp" %>
-<%@ include file="../include/boardmenu.jsp" %>
+<!-- <%@ include file="../include/boardmenu.jsp" %> -->
 <div class="div-main">
 <div class="div-left">
-	대충 사이드바
+	<table>
+	<caption class="side-caption">대충 사이드바</caption>
+		<tr>
+			<td><a href="/boardList.do?category=n">공지사항</a></td>
+		</tr>
+		<tr>
+			<td><a href="/boardList.do?category=b">일반 게시판</a></td>
+		</tr>
+		<tr>
+			<td><a href="/boardList.do?category=g">고민 게시판</a></td>
+		</tr>
+		<tr>
+			<td><a href="/boardList.do?category=h">취미 게시판</a></td>
+		</tr>
+	</table>
 </div>
 <div class="div-table">
-			<div class="div1">${titlecategory} 게시글 목록</div>
+			<div class="div1">${titlecategory}</div>
 			<div class="div2">
 				<div class="div3">Total : ${total}</div>
 				<div class="div4">
@@ -81,7 +103,7 @@
 					</form>
 				</div>
 			</div>
-	<table>
+	<table class="list-table">
 		<tr>
 			<th width="10%">번호</th>
 	   <!-- <th width="10%">카테고리</th> -->
@@ -121,5 +143,6 @@
 	<% } %>
 </div>
 </div>
+<%@ include file="../include/footer.jsp" %>
 </body>
 </html>

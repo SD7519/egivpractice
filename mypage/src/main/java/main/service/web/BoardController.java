@@ -61,10 +61,10 @@ public class BoardController {
 		String category = vo.getCategory();
 		if(category == null) { category = ""; }
 		switch (category) {
-			case "b" : ctgy = "일반"; break;
-			case "g" : ctgy = "고민"; break;
-			case "h" : ctgy = "취미"; break;
-			default : ctgy = "전체"; break;
+			case "b" : ctgy = "일반 게시판"; break;
+			case "g" : ctgy = "고민 게시판"; break;
+			case "h" : ctgy = "취미 게시판"; break;
+			default : ctgy = "공지사항"; break;
 		}
 		
 		List<?> list = boardService.selectBoardList(vo);

@@ -51,13 +51,6 @@
 		height:100%;
     	object-fit:cover;
 	}
-	footer {
-		background-color: #585858;
-		color: #ffffff;
-		height: 100px;
-		margin-top: 10px;
-		width: 100%;
-	}
 	header {
 		width: 1250px;
 	}
@@ -96,25 +89,17 @@
 	</div>
 </div>
 <div class="div-main">
-	<div class="main2">
-	</div>
-	<div class="main2">
-	</div>
+	<div class="main2">뭘</div>
+	<div class="main2">넣</div>
 </div>
 <div class="div-main">
-	<div class="main2">
-	</div>
-	<div class="main2">
-	</div>
+	<div class="main2">어</div>
+	<div class="main2">야</div>
 </div>
 <div class="div-main">
-	<div class="main2">
-	</div>
-	<div class="main2">
-	</div>
+	<div class="main2">하</div>
+	<div class="main2">지</div>
 </div>
-<footer>
-	<p>어쩌고 저쩌고</p>
-</footer>
+<%@ include file="../jsp/include/footer.jsp" %>
 </body>
 </html>
