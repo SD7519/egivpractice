@@ -33,8 +33,12 @@ public class BoardDAO extends EgovAbstractDAO{
 		return (BoardVO) select("boardDAO.selectModifyBoard", unq);
 	}
 
-	public int updateModifyBoard(int unq) {
-		return update("boardDAO.updateModifyBoard", unq);
+	public int updateModifyBoard(BoardVO vo) {
+		return update("boardDAO.updateModifyBoard", vo);
+	}
+
+	public int deleteboard(BoardVO vo) {
+		return delete("boardDAO.deleteBoard", vo);
 	}
 
 }

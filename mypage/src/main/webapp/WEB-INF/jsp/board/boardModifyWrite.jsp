@@ -86,7 +86,11 @@ function fn_msave() {
 			</tr>
 			<tr>
 				<th><label for="category">카테고리</label></th>
-				<td>${ct}<input type="hidden" name="category" id="category" value="${BoardVO.category}"></td>
+				<td>
+					${ct}
+					<input type="hidden" name="category" id="category" value="${BoardVO.category}">
+					<input type="hidden" name="unq" id="unq" value="${BoardVO.unq}">
+				</td>
 			</tr>
 			<tr>
 				<th><label for="pass">암호</label></th>

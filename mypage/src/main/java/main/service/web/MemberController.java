@@ -77,6 +77,7 @@ public class MemberController {
 	public String logout(HttpSession session) throws Exception {
 		
 		session.removeAttribute("username");
+		session.removeAttribute("userid");
 		
 		return "redirect:main.do";
 	}

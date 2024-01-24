@@ -7,7 +7,8 @@
 <% pageContext.setAttribute("newline", "\n"); %>
 
 <c:set var="content" value="${fn:replace(detailVO.content, newline, '<br>') }"/>
-
+<c:set var="Uname" value='<%=(String) session.getAttribute("username")%>'/>
+<c:set var="Uid" value='<%=(String) session.getAttribute("userid")%>'/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,8 +38,41 @@
 		display: flex;
 		height: 100%;
 	}
-
 </style>
+<script>
+function fn_del() {	
+	var unq = ${detailVO.unq};
+	var category = "${detailVO.category}";
+	
+	var sendData = "unq="+ unq;
+	
+	if(confirm("삭제하시겠습니까?") == true){
+		$.ajax({
+			type:"POST",
+			data:sendData,
+			url:"deleteBoard.do",
+			dataType:"text", // 리턴 타입
+			
+			success: function(result) {
+				if(result == "1") {
+					alert("삭제완료");
+					location = "boardList.do?category="+ category;
+				} else {
+					alert("삭제실패\n관리자에게 연락주세요.");
+				}
+			},
+			error:function() {
+					alert("오류발생");			
+			}
+		});
+	} else {
+		alert("취소되었습니다.");
+		return false;
+	}
+	
+		
+}
+</script>
 <%@ include file="../include/topmenu.jsp" %>
 <%@ include file="../include/boardmenu.jsp" %>
 <body>
@@ -71,8 +105,10 @@
 			<tr>
 				<th colspan="2">
 					<button type="button" onclick="location='boardList.do?category=${detailVO.category}'">목록</button>
-					<button type="button" onclick="location='boardModifyWrite.do?unq=${detailVO.unq}'">수정</button>
-					<button type="button" onclick="location='passWrite.do?uno=${detailVO.unq}'">삭제</button>
+					<c:if test="${detailVO.name == Uname or Uid == 'admin'}">
+						<button type="button" onclick="location='boardModifyWrite.do?unq=${detailVO.unq}'">수정</button>
+						<button type="button" onclick="fn_del(); return false;">삭제</button>
+					</c:if>
 				</th>
 			</tr>
 		</table>

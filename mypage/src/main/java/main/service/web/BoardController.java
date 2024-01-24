@@ -124,17 +124,33 @@ public class BoardController {
 	}
 	
 	@RequestMapping("/boardModifySave.do")
-	public String updateModifyBoard(int unq) throws Exception {
+	@ResponseBody
+	public String updateModifyBoard(BoardVO vo) throws Exception {
 		
-		int result = boardService.updateBoardHits(unq);
-		
+		int result = boardService.boardModifySave(vo);
+		int cnt = 0;
 		
 		if(result == 1) {
-			
+			cnt = 1;
 		} else {
-			
+			cnt = -1;
 		}
 		
-		return "";
+		return cnt + "";
+	}
+	
+	@RequestMapping("/deleteBoard.do")
+	@ResponseBody
+	public String deleteBoard(BoardVO vo) throws Exception{
+		
+		int result = boardService.deleteBoard(vo);
+		int cnt = 0;
+		if(result == 1) {
+			cnt = 1;
+		} else {
+			cnt = -1;
+		}
+		
+		return cnt + "";
 	}
 }

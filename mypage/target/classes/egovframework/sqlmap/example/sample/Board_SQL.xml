@@ -76,7 +76,17 @@
 	</select>
 	
 	<update id="boardDAO.updateModifyBoard">
-		update sboard set title=#title#, content=#content# where unq=#unq# and password=#password#
+		update sboard set
+				title=#title#,
+				content=#content#,
+				name=#name#,
+				category=#category#
+			where
+				unq=#unq# and pass=#pass#
 	</update>
+	
+	<delete id="boardDAO.deleteBoard">
+		delete from sboard where unq=#unq#
+	</delete>
 	
 </sqlMap>
