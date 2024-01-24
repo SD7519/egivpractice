@@ -38,4 +38,8 @@
 		UPDATE pmember SET userpass = #userpass# WHERE userid = #userid#
 	</select>
 	
+	<update id="memberDAO.updateMember">
+		UPDATE pmember SET email=#email#, name=#name#, phonenum=#phonenum#, birth=#birth# WHERE userid=#userid#
+	</update>
+	
 </sqlMap>

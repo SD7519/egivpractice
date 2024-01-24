@@ -37,5 +37,10 @@ public class MemberServiceImpl implements MemberService{
 	public String modifyPassSave(MemberVO vo) throws Exception {
 		return memberDAO.modifyPassSave(vo);
 	}
+
+	@Override
+	public int updateMember(MemberVO vo) throws Exception {
+		return memberDAO.updateMember(vo);
+	}
 	
 }

@@ -7,4 +7,5 @@ public interface MemberService {
 	public MemberVO selectMemberDetail(String userid) throws Exception;
 	public int modifyPass(MemberVO vo) throws Exception;
 	public String modifyPassSave(MemberVO vo) throws Exception;
+	public int updateMember(MemberVO vo) throws Exception;
 }

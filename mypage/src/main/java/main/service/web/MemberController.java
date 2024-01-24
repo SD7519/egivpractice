@@ -134,4 +134,19 @@ public class MemberController {
 		
 		return msg;
 	}
+	
+	@RequestMapping("/memberModifySave.do")
+	@ResponseBody
+	public String updateMember(MemberVO vo) throws Exception{
+		
+		int result = memberService.updateMember(vo);
+		int cnt = 0;
+		if(result == 1) {
+			cnt = 1;
+		} else {
+			cnt = -1;
+		}
+		
+		return cnt + "";
+	}
 }
