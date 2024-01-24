@@ -13,7 +13,7 @@
 		margin: 0 auto;
 	}
 	table{
-		width:100%;
+		width:1000px;
 		border-collapse:collapse;
 	}
 	th,td {

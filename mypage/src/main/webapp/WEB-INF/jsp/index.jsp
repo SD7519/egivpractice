@@ -42,6 +42,8 @@
 		width: 50%;
 		border: 1px solid #000000;
 		height: 200px;
+		text-align: center;
+		line-height : 200px;
 	}
 	.table-1 {
 		width: 100%;
@@ -72,16 +74,16 @@
 				<td><a href="">◇ 가</a></td>
 			</tr>
 			<tr>
-				<td><a href="">◇ 가</a></td>
+				<td><a href="">◇ 나</a></td>
 			</tr>
 			<tr>
-				<td><a href="">◇ 가</a></td>
+				<td><a href="">◇ 다</a></td>
 			</tr>
 			<tr>
-				<td><a href="">◇ 가</a></td>
+				<td><a href="">◇ 라</a></td>
 			</tr>
 			<tr>
-				<td><a href="">◇ 가</a></td>
+				<td><a href="">◇ 마</a></td>
 			</tr>
 		</table>
 	</div>
@@ -97,8 +99,8 @@
 	<div class="main2">야</div>
 </div>
 <div class="div-main">
-	<div class="main2">하</div>
-	<div class="main2">지</div>
+	<div class="main2">할</div>
+	<div class="main2">까</div>
 </div>
 <%@ include file="../jsp/include/footer.jsp" %>
 </body>

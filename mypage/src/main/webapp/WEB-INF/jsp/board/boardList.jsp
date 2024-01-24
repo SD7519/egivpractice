@@ -15,12 +15,12 @@
 		border-collapse:collapse;
 		width: 100%;
 	}
-	.list-table > th,td {
+	.list-table th,td {
 		border:1px solid #cccccc;
 		padding: 3px;
 	}
 	.div1 {
-		width: 100%;
+		width: 1000px;
 		text-align:center;
 		font-size:15pt;
 		background-color: #bdbdbd;
@@ -53,10 +53,10 @@
 <body>
 <%@ include file="../include/topmenu.jsp" %>
 <!-- <%@ include file="../include/boardmenu.jsp" %> -->
+<div class="div1">${titlecategory}</div>
 <div class="div-main">
 <%@ include file="../include/sidebar.jsp" %>
 <div class="div-table">
-			<div class="div1">${titlecategory}</div>
 			<div class="div2">
 				<div class="div3">Total : ${total}</div>
 				<div class="div4">
