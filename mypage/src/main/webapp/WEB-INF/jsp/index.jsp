@@ -16,9 +16,6 @@
 	* {
 		margin:0 auto;
 	}
-	/*div {
-		width: 80%;
-	}*/
 	table {
 		border-collapse:collapse;
 	}
@@ -98,10 +95,6 @@
 <div class="div-main">
 	<div class="main2">어</div>
 	<div class="main2">야</div>
-</div>
-<div class="div-main">
-	<div class="main2">할</div>
-	<div class="main2">까</div>
 </div>
 <%@ include file="../jsp/include/footer.jsp" %>
 </body>

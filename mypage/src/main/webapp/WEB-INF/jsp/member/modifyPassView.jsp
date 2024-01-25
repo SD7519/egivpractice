@@ -123,5 +123,6 @@ function fn_psave() {
 	</form>
 </div>
 </div>
+<%@ include file="../include/footer.jsp" %>
 </body>
 </html>

@@ -50,7 +50,7 @@ public class BoardController {
 	@RequestMapping(value = "/boardList.do")
 	public String selectBoardList(BoardVO vo, ModelMap model) throws Exception{
 		
-		int unit = 10;
+		int unit = 15;
 		
 		int total = boardService.selectBoardTotal(vo);
 		int totalPage = (int) Math.ceil((double)total/unit);

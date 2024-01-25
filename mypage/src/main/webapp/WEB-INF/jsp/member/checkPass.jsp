@@ -103,6 +103,6 @@ function fn_pass() {
 	</form>
 </div>
 </div>
-
+<%@ include file="../include/footer.jsp" %>
 </body>
 </html>

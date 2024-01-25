@@ -117,5 +117,6 @@ function fn_del() {
 	
 </div>
 </div>
+<%@ include file="../include/footer.jsp" %>
 </body>
 </html>

@@ -28,6 +28,9 @@
 	<table>
 	<caption class="side-caption">사이드바</caption>
 		<tr>
+			<td><a href="/main.do">메인</a></td>
+		</tr>
+		<tr>
 			<td><a href="/boardList.do?category=n">공지사항</a></td>
 		</tr>
 		<tr>

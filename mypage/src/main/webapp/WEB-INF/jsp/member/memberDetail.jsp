@@ -159,5 +159,6 @@ function fn_exit() {
 	</form>
 </div>
 </div>
+<%@ include file="../include/footer.jsp" %>
 </body>
 </html>

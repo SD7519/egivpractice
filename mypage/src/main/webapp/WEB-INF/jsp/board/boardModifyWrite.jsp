@@ -47,11 +47,10 @@ function fn_msave() {
 	$("#pass").val( $.trim($("#pass").val()) );
 	
 	var caterory = $("#category").val();
+	var unq = $("#unq").val();
 	
 	var formData = $("#frm").serialize();
 	
-	var unq = $("#unq").val();
-	  
 	$.ajax({
 		type:"POST",
 		data:formData,
@@ -113,5 +112,6 @@ function fn_msave() {
 		</table>
 	</form>
 </div>
+<%@ include file="../include/footer.jsp" %>
 </body>
 </html>

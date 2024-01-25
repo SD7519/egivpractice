@@ -30,7 +30,6 @@ String UserName = (String) session.getAttribute("username");
 String UserID = (String) session.getAttribute("userid");
 %>
 <header>
-	<div style="text-align: center; width: 100%;"><a href="/main.do">대충 로고</a></div>
 	<div style="text-align: right; width: 100%;">
 	<% if(UserName == null) { %>
 				<a href="/login.do">로그인</a>
@@ -40,6 +39,7 @@ String UserID = (String) session.getAttribute("userid");
 				<a href="/logout.do" onclick="alert('로그아웃 되었습니다.')">로그아웃</a>				
 	<%} %>
 	</div>
+	<div style="text-align: center; width: 100%;"><a href="/main.do"><img src="/images/logo/Logo.png" width="300px"></a></div>
 </header>
 </body>
 </html>

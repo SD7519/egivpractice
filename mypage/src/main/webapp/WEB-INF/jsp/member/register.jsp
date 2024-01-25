@@ -99,7 +99,7 @@ function fn_check() {
 		margin: 0 auto;
 	}
 	.register-table{
-		width:70%;
+		width:500px;
 		border-collapse:collapse;
 		height: 70%;
 	}
@@ -118,13 +118,15 @@ function fn_check() {
 		text-align:center;
 		margin-top:5px;
 	}
-	div {
-		width: 80%
+	.warp {
+		position: relative;
+		min-height: 100%;
 	}
 </style>
 <body>
 <%@ include file="../include/topmenu.jsp" %>
-<div>
+<%@ include file="../include/boardmenu.jsp" %>
+<div class="warp">
 <form id="frm">
 	<table class="register-table">
 		<caption>회원가입</caption>
@@ -168,5 +170,6 @@ function fn_check() {
 	</div>
 </form>
 </div>
+<%@ include file="../include/footer.jsp" %>
 </body>
 </html>

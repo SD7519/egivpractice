@@ -13,6 +13,10 @@ footer {
 		height: 100px;
 		margin-top: 10px;
 		width: 100%;
+		
+	}
+	html, body {
+		height: 100%;
 	}
 </style>
 <body>
