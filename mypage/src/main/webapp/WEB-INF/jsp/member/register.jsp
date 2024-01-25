@@ -70,6 +70,29 @@ $( function() {
     	});
     });
   });
+function fn_check() {
+	 
+	 var userid = $("#userid").val();
+	 userid = $.trim(userid);
+	 
+	 $.ajax({
+ 		type:"POST",
+ 		data:"userid=" + userid,
+ 		url:"checkid.do",
+ 		dataType:"text", // 리턴 타입
+ 		success: function (data) {
+ 			if(data == "ok") {
+ 				alert("사용 가능한 아이디입니다.");
+ 			} else {
+ 				alert("사용할 수 없는 아이디입니다.");
+ 				location = "register.do?";
+ 			}
+ 		},
+ 		error:function() {
+ 				alert("오류발생");			
+ 		}
+ 	});	 
+}
 </script>
 <style>
 	* {
@@ -106,11 +129,11 @@ $( function() {
 	<table class="register-table">
 		<caption>회원가입</caption>
 		<tr>
-			<th class="register-th"><label for="userid">아이디</label></th>
-			<td class="register-td"><input type="text" name="userid" id="userid" class="input1"/></td>
+			<th class="register-th"><label for="userid">*아이디</label></th>
+			<td class="register-td"><input type="text" name="userid" id="userid" class="input1"/><button type="button" onclick="fn_check(); return false;">아이디 중복체크</button></td>
 		</tr>
 		<tr>
-			<th class="register-th"><label>비밀번호</label></th>
+			<th class="register-th"><label>*비밀번호</label></th>
 			<td class="register-td"><input type="password" name="userpass" id="userpass" class="input1"/></td>
 		</tr>
 		<tr>

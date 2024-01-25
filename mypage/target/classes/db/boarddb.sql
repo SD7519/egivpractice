@@ -8,3 +8,7 @@ create table sboard (
 		rdate timestamp(6),
 		category varchar2(100) not null
 )
+
+create table reply (
+		
+)

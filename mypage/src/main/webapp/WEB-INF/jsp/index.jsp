@@ -56,6 +56,14 @@
 	header {
 		width: 1000px;
 	}
+	.new-td {
+		height: 30px;
+	}
+	.new-cap {
+		height:35px;
+		border:1px solid #cccccc;
+		text-align: center;
+	}
 </style>
 <script type="text/javascript">
 </script>
@@ -69,25 +77,18 @@
 <div class="div-main">
 	<div class="main1">
 		<table class="table-1">
-		<caption>최근 게시물</caption>
-			<tr>
-				<td><a href="">◇ 가</a></td>
-			</tr>
-			<tr>
-				<td><a href="">◇ 나</a></td>
-			</tr>
-			<tr>
-				<td><a href="">◇ 다</a></td>
-			</tr>
-			<tr>
-				<td><a href="">◇ 라</a></td>
-			</tr>
-			<tr>
-				<td><a href="">◇ 마</a></td>
-			</tr>
+		<caption class="new-cap">최근 게시물</caption>
+			<c:forEach var="result" items="${newlist}">
+				<tr>
+					<td class="new-td">
+						<a href="boardDetail.do?unq=${result.unq}">▶ <c:out value="${result.title}"/></a>
+					</td>
+				</tr>
+			</c:forEach>
 		</table>
 	</div>
 	<div class="main2">
+		여기엔 뭘 넣어야하지
 	</div>
 </div>
 <div class="div-main">

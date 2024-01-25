@@ -9,4 +9,5 @@ public interface MemberService {
 	public String modifyPassSave(MemberVO vo) throws Exception;
 	public int updateMember(MemberVO vo) throws Exception;
 	public int deleteMember(MemberVO vo) throws Exception;
+	public int checkId(String userid) throws Exception;
 }

@@ -53,4 +53,9 @@ public class BoardServiceImpl implements BoardService{
 	public int deleteBoard(BoardVO vo) throws Exception {
 		return boardDAO.deleteboard(vo);
 	}
+
+	@Override
+	public List<?> selectNewBoard(BoardVO vo) throws Exception {
+		return boardDAO.selectNewBoard(vo);
+	}
 }

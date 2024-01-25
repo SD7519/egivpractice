@@ -16,16 +16,10 @@ public class MemberController {
 	@Resource(name = "memberService")
 	private MemberService memberService;
 	
-	@RequestMapping(value = "/main.do")
-	public String main() {
-		return "index";
-	}
-	
 	@RequestMapping(value = "/login.do")
 	public String login() {
 		return "member/login";
 	}
-	
 	
 	@RequestMapping(value = "/register.do")
 	public String memberRegister() {
@@ -167,5 +161,20 @@ public class MemberController {
 		session.removeAttribute("userid");
 		
 		return cnt + "";
+	}
+	
+	@RequestMapping("/checkid.do")
+	@ResponseBody
+	public String checkId(String userid) throws Exception {
+		
+		int result = memberService.checkId(userid);
+		String msg = "";
+		if(result == 1) {
+			msg = "fail";
+		} else {
+			msg = "ok";
+		}
+		
+		return msg;
 	}
 }

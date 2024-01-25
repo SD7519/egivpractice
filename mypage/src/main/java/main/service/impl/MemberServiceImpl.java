@@ -47,5 +47,10 @@ public class MemberServiceImpl implements MemberService{
 	public int deleteMember(MemberVO vo) throws Exception {
 		return memberDAO.deleteMember(vo);
 	}
+
+	@Override
+	public int checkId(String userid) throws Exception {
+		return memberDAO.checkId(userid);
+	}
 	
 }

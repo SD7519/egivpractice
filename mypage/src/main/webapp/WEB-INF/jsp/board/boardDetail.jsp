@@ -113,6 +113,9 @@ function fn_del() {
 		</table>
 	</form>
 </div>
+<div>
+	
+</div>
 </div>
 </body>
 </html>

@@ -13,12 +13,11 @@ footer {
 		height: 100px;
 		margin-top: 10px;
 		width: 100%;
-		bottom: 0;
 	}
 </style>
 <body>
 <footer>
-	<div style="padding-top: 35px;">
+	<div style="padding-top: 40px;">
 		<p>Copyright@어쩌구저쩌구</p>	
 	</div>
 </footer>

@@ -89,4 +89,9 @@
 		delete from sboard where unq=#unq#
 	</delete>
 	
+	<select id="boardDAO.selectNewBoard" resultClass="BoardVO">
+		<!-- select title from sboard where rownum <![CDATA[<=]]>5 -->
+		select unq, title from (select unq, title from sboard order by unq desc) where rownum <![CDATA[<=]]>5
+	</select>
+	
 </sqlMap>

@@ -18,6 +18,16 @@ public class BoardController {
 	@Resource(name = "boardService")
 	private BoardService boardService;
 	
+	@RequestMapping(value = "/main.do")
+	public String main(BoardVO vo, ModelMap model) throws Exception {
+		
+		List<?> list = boardService.selectNewBoard(vo);
+		
+		model.addAttribute("newlist",list);
+		
+		return "index";
+	}
+	
 	@RequestMapping(value = "/boardWrite.do")
 	public String boardWrite() throws Exception {
 		return "board/boardWrite";

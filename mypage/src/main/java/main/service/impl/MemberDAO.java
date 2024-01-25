@@ -36,5 +36,9 @@ public class MemberDAO extends EgovAbstractDAO{
 		return delete("memberDAO.deleteMember", vo);
 	}
 
+	public int checkId(String userid) {
+		return (int) select("memberDAO.checkId", userid);
+	}
+
 }
 
