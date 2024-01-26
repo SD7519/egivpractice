@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import main.service.BoardService;
 import main.service.BoardVO;
+import main.service.ReplyVO;
 
 @Service("boardService")
 public class BoardServiceImpl implements BoardService{
@@ -57,5 +58,15 @@ public class BoardServiceImpl implements BoardService{
 	@Override
 	public List<?> selectNewBoard(BoardVO vo) throws Exception {
 		return boardDAO.selectNewBoard(vo);
+	}
+
+	@Override
+	public List<?> selectReplyList(ReplyVO ro) throws Exception {
+		return boardDAO.selectReplyList(ro);
+	}
+
+	@Override
+	public String insertReply(ReplyVO ro) throws Exception {
+		return boardDAO.insertReply(ro);
 	}
 }

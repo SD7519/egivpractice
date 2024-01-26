@@ -119,6 +119,7 @@ function fn_exit() {
 </script>
 <%@ include file="../include/topmenu.jsp" %>
 <body>
+<div class="warp">
 <div class="div-main">
 <%@ include file="../include/sidebar.jsp" %>
 <div class="div-table">
@@ -157,6 +158,7 @@ function fn_exit() {
 			</tr>
 		</table>
 	</form>
+</div>
 </div>
 </div>
 <%@ include file="../include/footer.jsp" %>

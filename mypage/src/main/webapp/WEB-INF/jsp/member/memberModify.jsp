@@ -101,7 +101,7 @@ $( function() {
 </style>
 <body>
 <%@ include file="../include/topmenu.jsp" %>
-<div>
+<div class="warp">
 <form id="frm">
 	<table class="register-table">
 		<caption>회원가입</caption>

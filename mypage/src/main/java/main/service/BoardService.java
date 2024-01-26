@@ -12,4 +12,6 @@ public interface BoardService {
 	public int boardModifySave(BoardVO vo) throws Exception;
 	public int deleteBoard(BoardVO vo) throws Exception;
 	public List<?> selectNewBoard(BoardVO vo) throws Exception;
+	public String insertReply(ReplyVO ro) throws Exception;
+	public List<?> selectReplyList(ReplyVO ro) throws Exception;
 }

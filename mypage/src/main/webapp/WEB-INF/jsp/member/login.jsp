@@ -88,7 +88,7 @@ $( function() {
 </head>
 <body>
 <%@ include file="../include/topmenu.jsp" %>
-<div>
+<div class="warp">
 <form id="frm" name="frm" >
 	<table class="register-table">
 		<caption>LOGIN</caption>

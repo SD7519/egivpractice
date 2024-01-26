@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import main.service.BoardService;
 import main.service.BoardVO;
+import main.service.ReplyVO;
 
 @Controller
 public class BoardController {
@@ -90,7 +91,7 @@ public class BoardController {
 	}
 	
 	@RequestMapping("/boardDetail.do")
-	public String selectBoardDetail(BoardVO vo, ModelMap model) throws Exception {
+	public String selectBoardDetail(BoardVO vo, ModelMap model, ReplyVO ro) throws Exception {
 		
 		boardService.updateBoardHits(vo.getUnq());
 		
@@ -108,6 +109,9 @@ public class BoardController {
 			case "n" : categy = "공지"; break;
 		}
 		
+		List<?> list = boardService.selectReplyList(ro);
+		
+		model.addAttribute("replyVO",list);
 		model.addAttribute("boardCT", categy);
 		model.addAttribute("detailVO",boardVO);
 		
@@ -127,6 +131,9 @@ public class BoardController {
 			case "h" : categy = "취미"; break;
 			case "n" : categy = "공지"; break;
 		}
+		
+		
+		
 		model.addAttribute("ct",categy);
 		model.addAttribute("BoardVO",boardVO);
 		
@@ -163,4 +170,20 @@ public class BoardController {
 		
 		return cnt + "";
 	}
+	
+	@RequestMapping("/insertReply.do")
+	@ResponseBody
+	public String insertReply(ReplyVO ro) throws Exception {
+		
+		String result = boardService.insertReply(ro);
+		String msg = "";
+		if(result == null) {
+			msg = "ok";
+		} else {
+			msg = "fail";
+		}
+		
+		return msg;
+	}
+
 }

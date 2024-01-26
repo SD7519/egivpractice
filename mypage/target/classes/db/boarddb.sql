@@ -10,5 +10,9 @@ create table sboard (
 )
 
 create table reply (
-		
+		rpunq number not null,
+		rpboardunq number not null,
+		rpname varchar2(20),
+		rpcontent varchar2(4000),
+		rpdate timestamp(6)		
 )

@@ -94,4 +94,15 @@
 		select unq, title from (select unq, title from sboard order by unq desc) where rownum <![CDATA[<=]]>5
 	</select>
 	
+	<select id="boardDAO.selectReplyList" resultClass="egovMap">
+		SELECT rpname, rpcontent, to_char(rpdate, 'yyyy-mm-dd HH:MI') rpdate FROM reply WHERE rpboardunq = #rpboardunq#
+	</select>
+	
+	<insert id="boardDAO.insertReply">
+		INSERT INTO reply
+				(rpunq, rpboardunq, rpname, rpcontent, rpdate)
+			VALUES
+				(reply_seq.nextval, #rpboardunq#, #rpname#, #rpcontent#, sysdate)
+	</insert>
+	
 </sqlMap>

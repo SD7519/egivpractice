@@ -53,6 +53,7 @@
 <body>
 <%@ include file="../include/topmenu.jsp" %>
 <!-- <%@ include file="../include/boardmenu.jsp" %> -->
+<div class="warp">
 <div class="div1">${titlecategory}</div>
 <div class="div-main">
 <%@ include file="../include/sidebar.jsp" %>
@@ -77,7 +78,6 @@
 	<table class="list-table">
 		<tr>
 			<th width="10%">번호</th>
-	   <!-- <th width="10%">카테고리</th> -->
 			<th width="35%">제목</th>
 			<th width="15%">글쓴이</th>
 			<th width="15%">등록일</th>
@@ -89,9 +89,8 @@
 		<c:forEach var="result" items="${resultList}">
 			<tr align="center">
 				<td><c:out value="${cnt}"/></td>
-		   <!-- <td><c:out value="${result.category}"/></td> -->
 				<td align="left">
-					<a href="boardDetail.do?unq=${result.unq}"><c:out value="${result.title}"/></a>
+					<a href="boardDetail.do?unq=${result.unq}&rpboardunq=${result.unq}"><c:out value="${result.title}"/></a>
 				</td>
 				<td><c:out value="${result.name}"/></td>
 				<td><c:out value="${result.rdate}"/></td>
@@ -113,6 +112,7 @@
 		<button type="button" onclick="location='boardWrite.do'">글쓰기</button>
 	</div>
 	<% } %>
+</div>
 </div>
 </div>
 <%@ include file="../include/footer.jsp" %>

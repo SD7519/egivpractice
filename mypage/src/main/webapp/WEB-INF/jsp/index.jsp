@@ -67,7 +67,7 @@
 <body>
 <%@ include file="../jsp/include/topmenu.jsp" %>
 <%@ include file="../jsp/include/boardmenu.jsp" %>
-
+<div class="warp">
 <div class="div-banner">
 	<img class="banner-img" src="/images/banner/banner-3.jpg" >
 </div>
@@ -78,7 +78,7 @@
 			<c:forEach var="result" items="${newlist}">
 				<tr>
 					<td class="new-td">
-						<a href="boardDetail.do?unq=${result.unq}">▶ <c:out value="${result.title}"/></a>
+						<a href="boardDetail.do?unq=${result.unq}&rpboardunq=${result.unq}">▶ <c:out value="${result.title}"/></a>
 					</td>
 				</tr>
 			</c:forEach>
@@ -95,6 +95,7 @@
 <div class="div-main">
 	<div class="main2">어</div>
 	<div class="main2">야</div>
+</div>
 </div>
 <%@ include file="../jsp/include/footer.jsp" %>
 </body>

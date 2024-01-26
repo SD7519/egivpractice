@@ -79,7 +79,7 @@ function fn_save() {
 <body>
 <%@ include file="../include/topmenu.jsp" %>
 <%@ include file="../include/boardmenu.jsp" %>
-<div>
+<div class="warp">
 	<form id="frm">
 		<table>
 			<caption>게시글 등록</caption>

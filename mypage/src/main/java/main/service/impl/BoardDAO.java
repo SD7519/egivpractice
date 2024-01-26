@@ -6,6 +6,7 @@ import org.egovframe.rte.psl.dataaccess.EgovAbstractDAO;
 import org.springframework.stereotype.Repository;
 
 import main.service.BoardVO;
+import main.service.ReplyVO;
 @Repository("boardDAO")
 public class BoardDAO extends EgovAbstractDAO{
 
@@ -43,6 +44,14 @@ public class BoardDAO extends EgovAbstractDAO{
 
 	public List<?> selectNewBoard(BoardVO vo) {
 		return list("boardDAO.selectNewBoard", vo);
+	}
+
+	public List<?> selectReplyList(ReplyVO ro) {
+		return list("boardDAO.selectReplyList", ro);
+	}
+
+	public String insertReply(ReplyVO ro) {
+		return (String) insert("boardDAO.insertReply", ro);
 	}
 
 }

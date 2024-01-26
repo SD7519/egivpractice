@@ -18,6 +18,10 @@ footer {
 	html, body {
 		height: 100%;
 	}
+	.warp {
+		position: relative;
+		min-height: 100%;
+	}
 </style>
 <body>
 <footer>

@@ -26,7 +26,7 @@
 <body>
 <div class="div-left">
 	<table>
-	<caption class="side-caption">사이드바</caption>
+	<caption class="side-caption">바로가기</caption>
 		<tr>
 			<td><a href="/main.do">메인</a></td>
 		</tr>

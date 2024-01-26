@@ -26,17 +26,39 @@
 		border:1px solid #cccccc;
 		padding: 3px;
 	}
-	.div-left {
-		border:1px solid #cccccc;
-		width:10%;
-		margin-right:10px;
-	}
 	.div-table {
 		width:90%;
 	}
 	.div-main {
 		display: flex;
 		width: 1000px;
+	}
+	.reply {
+		border: 1px solid #cccccc;
+		width:100%;
+		display: flex;
+		text-align: center;
+		justify-content: center;
+	}
+	.input-rp {
+		width: 80%;
+		height:50px;
+		margin: 0;
+		padding: 5px;
+		resize: none;
+		width: 750px;
+	}
+	.rpname {
+		width: 80px;
+		margin: 0;
+		padding-top: 20px;
+		text-align: center;
+		border:none;
+		outline:none;
+	}
+	.rpbtn {
+		margin: 0;
+		padding: 0;	
 	}
 </style>
 <script>
@@ -75,6 +97,7 @@ function fn_del() {
 </script>
 <%@ include file="../include/topmenu.jsp" %>
 <body>
+<div class="warp">
 <div class="div-main">
 <%@ include file="../include/sidebar.jsp" %>
 <div class="div-table">
@@ -112,9 +135,60 @@ function fn_del() {
 			</tr>
 		</table>
 	</form>
-</div>
+	<br>
+<%if(UserName != null){ %>
 <div>
+	<form name="replyfrm" id="replyfrm" class="reply">
+		<div><input type="text" name="rpname" id="rpname" value="<%out.print(UserName);%>" class="rpname" readonly></div>
+		<div><textarea name="rpcontent" id="rpcontent" class="input-rp"></textarea></div>
+		<div class="rpbtn"><button type="button" onclick="fn_rep(); return false;" style="margin-top:20px;">등록</button></div>
+		<input type="hidden" name="rpboardunq" id="rpboardunq" value="${detailVO.unq}">
+	</form>
+</div>
+<%} %>
+<script>
+function fn_rep() {
 	
+	var unq = ${detailVO.unq};
+	
+	var formData = $("#replyfrm").serialize();
+	
+	$.ajax({
+		type:"POST",
+		data:formData,
+		url:"insertReply.do",
+		dataType:"text", // 리턴 타입
+		
+		success: function(result) {
+			if(result == "ok") {
+				location = "boardDetail.do?unq="+unq + "&rpboardunq=" + unq;
+			} else {
+				alert("등록실패\n관리자에게 연락주세요.");
+			}
+		},
+		error:function() {
+				alert("오류발생");			
+		}
+	});
+}
+</script>
+<br>
+<div>
+	<table>
+		<c:forEach var="result" items="${replyVO}">
+			<tr>
+				<th width="20%"><c:out value="${result.rpname}"/></th>
+				<td width="68%"><c:out value="${result.rpcontent}"/></td>
+				<td width="12%" style="text-align: center;">
+					<a href="">수정</a>
+					<a href="">삭제</a><br>
+					<c:out value="${result.rpdate}"/>
+				</td>
+			</tr>
+		</c:forEach>
+	</table>
+</div>
+</div>
 </div>
 </div>
 <%@ include file="../include/footer.jsp" %>
