@@ -9,6 +9,7 @@ public class BoardVO {
 	private int hits;
 	private String rdate;
 	private String category;
+	private int rcm;
 	
 	private int viewPage = 1;
 	private int startIndex = 1;
@@ -95,5 +96,11 @@ public class BoardVO {
 	}
 	public void setRdate(String rdate) {
 		this.rdate = rdate;
+	}
+	public int getRcm() {
+		return rcm;
+	}
+	public void setRcm(int rcm) {
+		this.rcm = rcm;
 	}
 }

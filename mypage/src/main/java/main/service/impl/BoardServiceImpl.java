@@ -69,4 +69,19 @@ public class BoardServiceImpl implements BoardService{
 	public String insertReply(ReplyVO ro) throws Exception {
 		return boardDAO.insertReply(ro);
 	}
+
+	@Override
+	public int deleteReply(ReplyVO ro) throws Exception {
+		return boardDAO.deleteReply(ro);
+	}
+
+	@Override
+	public int updateBoardRcm(int unq) throws Exception {
+		return boardDAO.updateBoardRcm(unq);
+	}
+
+	@Override
+	public List<?> selectBestBoard(BoardVO vo) throws Exception {
+		return boardDAO.selectBestBoard(vo);
+	}
 }

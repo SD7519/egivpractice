@@ -127,6 +127,7 @@ function fn_del() {
 			<tr>
 				<th colspan="2">
 					<button type="button" onclick="location='boardList.do?category=${detailVO.category}'">목록</button>
+					<button type="button" onclick="fn_upr(); return false;">${detailVO.rcm} 추천</button>
 					<c:if test="${detailVO.name == Uname or Uid == 'admin'}">
 						<button type="button" onclick="location='boardModifyWrite.do?unq=${detailVO.unq}'">수정</button>
 						<button type="button" onclick="fn_del(); return false;">삭제</button>
@@ -171,6 +172,31 @@ function fn_rep() {
 		}
 	});
 }
+
+function fn_upr() {
+	
+	var unq = ${detailVO.unq};
+	
+//	var formData = $("#replyfrm").serialize();
+	
+	$.ajax({
+		type:"POST",
+		data:"unq=" + unq,
+		url:"updateRcm.do",
+		dataType:"text", // 리턴 타입
+		
+		success: function(result) {
+			if(result == "1") {
+				location = "boardDetail.do?unq="+unq + "&rpboardunq=" + unq;
+			} else {
+				alert("관리자에게 연락주세요.");
+			}
+		},
+		error:function() {
+				alert("오류발생");			
+		}
+	});
+}
 </script>
 <br>
 <div>
@@ -180,13 +206,44 @@ function fn_rep() {
 				<th width="20%"><c:out value="${result.rpname}"/></th>
 				<td width="68%"><c:out value="${result.rpcontent}"/></td>
 				<td width="12%" style="text-align: center;">
-					<a href="">수정</a>
-					<a href="">삭제</a><br>
+					<c:if test="${result.rpname == Uname or Uid == 'admin'}">
+						<a href="">수정</a>
+						<a href="#" onclick="fn_rpdel(${result.rpunq}); return false;">삭제</a><br>
+					</c:if>
 					<c:out value="${result.rpdate}"/>
 				</td>
 			</tr>
 		</c:forEach>
 	</table>
+<script>
+function fn_rpdel(rpunq) {
+	
+	var unq = ${detailVO.unq};
+//	var rpunq = $('#rpunq').val();
+	
+	var SendData = "rpunq=" + rpunq;
+	
+	
+	$.ajax({
+		type:"POST",
+		data:SendData,
+		url:"deleteReply.do",
+		dataType:"text", // 리턴 타입
+		
+		success: function(result) {
+			if(result == "1") {
+				alert("삭제완료");
+				location = "boardDetail.do?unq="+unq + "&rpboardunq=" + unq;
+			} else {
+				alert("삭제실패\n관리자에게 연락주세요.");
+			}
+		},
+		error:function() {
+				alert("오류발생");			
+		}
+	});
+}
+</script>
 </div>
 </div>
 </div>

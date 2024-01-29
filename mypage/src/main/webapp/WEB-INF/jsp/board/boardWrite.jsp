@@ -119,6 +119,10 @@ function fn_save() {
 				<td><textarea name="content" id="content" class="textarea"></textarea></td>
 			</tr>
 			<tr>
+				<th>파일 업로드</th>				
+				<td><input type="file" id="filename" name="filename"></td>
+			</tr>
+			<tr>
 				<th colspan="2">
 					<button type="button" onclick="fn_save(); return false;">저장</button>
 					<button type="reset">취소</button>

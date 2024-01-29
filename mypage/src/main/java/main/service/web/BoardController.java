@@ -23,8 +23,10 @@ public class BoardController {
 	public String main(BoardVO vo, ModelMap model) throws Exception {
 		
 		List<?> list = boardService.selectNewBoard(vo);
+		List<?> best = boardService.selectBestBoard(vo);
 		
 		model.addAttribute("newlist",list);
+		model.addAttribute("bestlist",best);
 		
 		return "index";
 	}
@@ -186,4 +188,33 @@ public class BoardController {
 		return msg;
 	}
 
+	@RequestMapping("/deleteReply.do")
+	@ResponseBody
+	public String deleteReply(ReplyVO ro) throws Exception {
+		
+		int result = boardService.deleteReply(ro);
+		int msg;
+		if(result == 1) {
+			msg = 1;
+		} else {
+			msg = -1;
+		}
+		
+		return msg+"";
+	}
+	
+	@RequestMapping("/updateRcm.do")
+	@ResponseBody
+	public String updateRcm(int unq) throws Exception {
+		
+		int result = boardService.updateBoardRcm(unq);
+		int cnt;
+		System.out.println(result);
+		if(result == 1) {
+			cnt = 1;
+		} else {
+			cnt = -1;
+		}
+		return cnt+"";
+	}
 }

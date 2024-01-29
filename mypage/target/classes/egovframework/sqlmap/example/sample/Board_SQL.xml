@@ -7,16 +7,16 @@
 
 	<insert id="boardDAO.insertBoardWrite">
 		INSERT INTO sboard 
-				(unq, title, pass, name, content, hits, rdate, category)
+				(unq, title, pass, name, content, hits, rdate, category, rcm)
 			VALUES
-				(board_seq.nextval, #title#, #pass#, #name#, #content#, 0, sysdate, #category#)
+				(board_seq.nextval, #title#, #pass#, #name#, #content#, 0, sysdate, #category#, 0)
 	</insert>
 	
 	<select id="boardDAO.selectBoardList" resultClass="egovMap">
 		
 			select b.* from(
 				select rownum rn, a.* from(
-					select unq, title, name, hits, to_char(rdate, 'yyyy-mm-dd') rdate
+					select unq, title, name, hits, to_char(rdate, 'yyyy-mm-dd') rdate, rcm
 					from sboard 
 						<isNotNull property="category">
 							where category = #category#
@@ -62,7 +62,8 @@
 			name,
 			content,
 			to_char(rdate, 'yyyy-mm-dd') rdate,
-			category
+			category,
+			rcm
 		from sboard
 			where unq=#unq#
 	</select>
@@ -90,12 +91,11 @@
 	</delete>
 	
 	<select id="boardDAO.selectNewBoard" resultClass="BoardVO">
-		<!-- select title from sboard where rownum <![CDATA[<=]]>5 -->
 		select unq, title from (select unq, title from sboard order by unq desc) where rownum <![CDATA[<=]]>5
 	</select>
 	
 	<select id="boardDAO.selectReplyList" resultClass="egovMap">
-		SELECT rpname, rpcontent, to_char(rpdate, 'yyyy-mm-dd HH:MI') rpdate FROM reply WHERE rpboardunq = #rpboardunq#
+		SELECT rpunq, rpname, rpcontent, to_char(rpdate, 'yyyy-mm-dd HH:MI') rpdate FROM reply WHERE rpboardunq = #rpboardunq#
 	</select>
 	
 	<insert id="boardDAO.insertReply">
@@ -105,4 +105,15 @@
 				(reply_seq.nextval, #rpboardunq#, #rpname#, #rpcontent#, sysdate)
 	</insert>
 	
+	<delete id="boardDAO.deleteReply">
+		DELETE FROM reply WHERE rpunq = #rpunq#
+	</delete>
+	
+	<update id="boardDAO.updateBoardRcm">
+		UPDATE sboard SET rcm=rcm+1 where unq=#unq#
+	</update>
+	
+	<select id="boardDAO.selectBestBoard" resultClass="BoardVO">
+		select unq, title, rcm from (select * from sboard order by rcm desc) where rownum <![CDATA[<=]]>5
+	</select>
 </sqlMap>

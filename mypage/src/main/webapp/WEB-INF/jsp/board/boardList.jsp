@@ -90,7 +90,7 @@
 			<tr align="center">
 				<td><c:out value="${cnt}"/></td>
 				<td align="left">
-					<a href="boardDetail.do?unq=${result.unq}&rpboardunq=${result.unq}"><c:out value="${result.title}"/></a>
+					<a href="boardDetail.do?unq=${result.unq}&rpboardunq=${result.unq}"><c:out value="${result.title}"/> ( ${result.rcm} )</a>
 				</td>
 				<td><c:out value="${result.name}"/></td>
 				<td><c:out value="${result.rdate}"/></td>

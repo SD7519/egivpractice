@@ -54,4 +54,16 @@ public class BoardDAO extends EgovAbstractDAO{
 		return (String) insert("boardDAO.insertReply", ro);
 	}
 
+	public int deleteReply(ReplyVO ro) {
+		return delete("boardDAO.deleteReply", ro);
+	}
+
+	public int updateBoardRcm(int unq) {
+		return update("boardDAO.updateBoardRcm", unq);
+	}
+
+	public List<?> selectBestBoard(BoardVO vo) {
+		return list("boardDAO.selectBestBoard", vo);
+	}
+
 }

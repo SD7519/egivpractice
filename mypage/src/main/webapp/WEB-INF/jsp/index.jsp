@@ -84,8 +84,17 @@
 			</c:forEach>
 		</table>
 	</div>
-	<div class="main2">
-		여기엔 뭘 넣어야하지
+	<div class="main1">
+		<table class="table-1">
+		<caption class="new-cap">베스트 게시물</caption>
+			<c:forEach var="result" items="${bestlist}">
+				<tr>
+					<td class="new-td">
+						<a href="boardDetail.do?unq=${result.unq}&rpboardunq=${result.unq}">▶<font color="red">[BEST]</font> <c:out value="${result.title}"/> (${result.rcm})</a>
+					</td>
+				</tr>
+			</c:forEach>
+		</table>
 	</div>
 </div>
 <div class="div-main">
