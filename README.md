@@ -1,1 +1,3 @@
-# egivpractice
+# egovframework practice
+# 2024-01-03 ~ 2024-02-01
+# 초반엔 연습 겸 기본 틀 잡는 정도 하고 개인 프로젝트로 제작
