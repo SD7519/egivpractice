@@ -30,11 +30,6 @@
 </style>
 
 <script>
-$(function(){
-	$("#title").val("제목입력");
-});
-
-
 function fn_save() {	
 	//trim() -> 앞뒤 공백 제거, java, jsp 	
 	if( $.trim( $("#title").val() ) == "") {
@@ -53,13 +48,19 @@ function fn_save() {
 	
 	var caterory = $("#category").val();
 	
-	var formData = $("#frm").serialize();
+//	var formData = $("#frm").serialize();
+	
+	var formData = new FormData($("#frm")[0]);
 	  
 	$.ajax({
 		type:"POST",
 		data:formData,
 		url:"boardWriteSave.do",
-		dataType:"text", // 리턴 타입
+		contentType : false,
+		processData : false,
+		cache: false,
+		dataType:"text",
+		enctype: "multipart/form-data",
 		success: function (data) {
 			if(data != null) {
 				alert("저장완료");
@@ -68,8 +69,8 @@ function fn_save() {
 				alert("저장실패");
 			}
 		},
-		error:function() {
-				alert("오류발생");			
+		error:function(data) {
+				alert(data);			
 		}
 	});
 		
@@ -80,7 +81,7 @@ function fn_save() {
 <%@ include file="../include/topmenu.jsp" %>
 <%@ include file="../include/boardmenu.jsp" %>
 <div class="warp">
-	<form id="frm">
+	<form id="frm" enctype="multipart/form-data">
 		<table>
 			<caption>게시글 등록</caption>
 			<tr>
@@ -88,7 +89,7 @@ function fn_save() {
 				<td width="80%"><input type="text" name="title" id="title" class="input1"></td>
 			</tr>
 			<tr>
-				<th><label for="category">카테고리</label></th>
+				<th>카테고리</th>
 				<td>
 				<%if(UserName.equals("관리자")){ %>
 					<select name="category">
@@ -119,8 +120,8 @@ function fn_save() {
 				<td><textarea name="content" id="content" class="textarea"></textarea></td>
 			</tr>
 			<tr>
-				<th>파일 업로드</th>				
-				<td><input type="file" id="filename" name="filename"></td>
+				<th>첨부파일</th>
+				<td><input type="file" name="file" id="file"></td>
 			</tr>
 			<tr>
 				<th colspan="2">

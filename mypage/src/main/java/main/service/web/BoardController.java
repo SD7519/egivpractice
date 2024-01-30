@@ -1,16 +1,22 @@
 package main.service.web;
 
+import java.io.File;
 import java.util.List;
+import java.util.UUID;
 
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import main.service.BoardService;
 import main.service.BoardVO;
+import main.service.FileVO;
 import main.service.ReplyVO;
 
 @Controller
@@ -38,10 +44,30 @@ public class BoardController {
 	
 	@RequestMapping(value = "/boardWriteSave.do")
 	@ResponseBody
-	public String boardWriteSave(BoardVO vo) throws Exception {
-				
+	public String boardWriteSave(BoardVO vo, FileVO fo, @RequestPart("file") MultipartFile file) throws Exception {
+		
+		String savedFileName = "";
+        // 1. 파일 저장 경로 설정 : 실제 서비스되는 위치(프로젝트 외부에 저장)
+        String uploadPath = "C:\\dev\\UploadFile";
+        // 2. 원본 파일 이름 알아오기
+        String originalFileName = file.getOriginalFilename();
+        // 3. 파일 이름 중복되지 않게 이름 변경(서버에 저장할 이름) UUID 사용
+        UUID uuid = UUID.randomUUID();
+        savedFileName = uuid + "_" + originalFileName;
+        // 4. 파일 생성
+        File file1 = new File(uploadPath, savedFileName);
+        // 5. 서버로 전송
+        file.transferTo(file1);
+		
 		String msg;
 		String result = boardService.boardWriteSave(vo);
+		
+		fo.setBno(vo.getUnq());
+		fo.setFilepath(uploadPath);
+		fo.setOrgfilename(originalFileName);
+		fo.setSavefilename(savedFileName);
+		boardService.fileSave(fo);
+		
 		if(result == null) {
 			msg = vo.getCategory();
 		} else {
@@ -134,8 +160,6 @@ public class BoardController {
 			case "n" : categy = "공지"; break;
 		}
 		
-		
-		
 		model.addAttribute("ct",categy);
 		model.addAttribute("BoardVO",boardVO);
 		
@@ -144,7 +168,21 @@ public class BoardController {
 	
 	@RequestMapping("/boardModifySave.do")
 	@ResponseBody
-	public String updateModifyBoard(BoardVO vo) throws Exception {
+	public String updateModifyBoard(BoardVO vo, CommonsMultipartFile file) throws Exception {
+		
+	 	String savedFileName = "";
+        // 1. 파일 저장 경로 설정 : 실제 서비스되는 위치(프로젝트 외부에 저장)
+        String uploadPath = "/dev/UploadFile";
+        // 2. 원본 파일 이름 알아오기
+        String originalFileName = file.getOriginalFilename();
+        // 3. 파일 이름 중복되지 않게 이름 변경(서버에 저장할 이름) UUID 사용
+        UUID uuid = UUID.randomUUID();
+        savedFileName = uuid.toString() + "_" + originalFileName;
+        // 4. 파일 생성
+        File file1 = new File(uploadPath + savedFileName);
+        // 5. 서버로 전송
+        file.transferTo(file1);
+        
 		
 		int result = boardService.boardModifySave(vo);
 		int cnt = 0;

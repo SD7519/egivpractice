@@ -6,6 +6,7 @@ import org.egovframe.rte.psl.dataaccess.EgovAbstractDAO;
 import org.springframework.stereotype.Repository;
 
 import main.service.BoardVO;
+import main.service.FileVO;
 import main.service.ReplyVO;
 @Repository("boardDAO")
 public class BoardDAO extends EgovAbstractDAO{
@@ -66,4 +67,8 @@ public class BoardDAO extends EgovAbstractDAO{
 		return list("boardDAO.selectBestBoard", vo);
 	}
 
+	public String fileSave(FileVO fo) {
+		return (String) insert("boardDAO.fileSave", fo);
+	}
+	
 }

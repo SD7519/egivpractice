@@ -12,9 +12,12 @@ public interface BoardService {
 	public int boardModifySave(BoardVO vo) throws Exception;
 	public int deleteBoard(BoardVO vo) throws Exception;
 	public List<?> selectNewBoard(BoardVO vo) throws Exception;
+	public int updateBoardRcm(int unq) throws Exception;
+	public List<?> selectBestBoard(BoardVO vo) throws Exception;
+	
 	public String insertReply(ReplyVO ro) throws Exception;
 	public List<?> selectReplyList(ReplyVO ro) throws Exception;
 	public int deleteReply(ReplyVO ro) throws Exception;
-	public int updateBoardRcm(int unq) throws Exception;
-	public List<?> selectBestBoard(BoardVO vo) throws Exception;
+	
+	public String fileSave(FileVO fo) throws Exception;
 }

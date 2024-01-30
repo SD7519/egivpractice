@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import main.service.BoardService;
 import main.service.BoardVO;
+import main.service.FileVO;
 import main.service.ReplyVO;
 
 @Service("boardService")
@@ -83,5 +84,10 @@ public class BoardServiceImpl implements BoardService{
 	@Override
 	public List<?> selectBestBoard(BoardVO vo) throws Exception {
 		return boardDAO.selectBestBoard(vo);
+	}
+
+	@Override
+	public String fileSave(FileVO fo) throws Exception {
+		return boardDAO.fileSave(fo);
 	}
 }

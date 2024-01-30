@@ -125,6 +125,10 @@ function fn_del() {
 				<td>${detailVO.rdate}</td>
 			</tr>
 			<tr>
+				<th>첨부파일</th>
+				<td></td>
+			</tr>
+			<tr>
 				<th colspan="2">
 					<button type="button" onclick="location='boardList.do?category=${detailVO.category}'">목록</button>
 					<button type="button" onclick="fn_upr(); return false;">${detailVO.rcm} 추천</button>

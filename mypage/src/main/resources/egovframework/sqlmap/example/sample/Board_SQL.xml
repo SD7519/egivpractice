@@ -116,4 +116,14 @@
 	<select id="boardDAO.selectBestBoard" resultClass="BoardVO">
 		select unq, title, rcm from (select * from sboard order by rcm desc) where rownum <![CDATA[<=]]>5
 	</select>
+	
+	
+	<!-- file 처리 sql -->
+	
+	<insert id="boardDAO.fileSave">
+		insert into board_file
+				(fno, bno, orgfilename, filepath, savefilename)
+			values
+				(file_seq.nextval, #bno#, #orgfilename#, #filepath#, #savefilename#)
+	</insert>
 </sqlMap>

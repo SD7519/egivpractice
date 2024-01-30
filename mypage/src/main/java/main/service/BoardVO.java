@@ -1,5 +1,7 @@
 package main.service;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class BoardVO {
 	private int unq;
 	private String title;
@@ -10,6 +12,8 @@ public class BoardVO {
 	private String rdate;
 	private String category;
 	private int rcm;
+	
+	private MultipartFile file;
 	
 	private int viewPage = 1;
 	private int startIndex = 1;
@@ -102,5 +106,11 @@ public class BoardVO {
 	}
 	public void setRcm(int rcm) {
 		this.rcm = rcm;
+	}
+	public MultipartFile getFile() {
+		return file;
+	}
+	public void setFile(MultipartFile file) {
+		this.file = file;
 	}
 }
