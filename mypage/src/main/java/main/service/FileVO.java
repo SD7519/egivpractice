@@ -8,7 +8,7 @@ public class FileVO {
 	private String orgfilename;
 	private String filepath;
 	private String savefilename;
-	
+	private int test;
 	public int getFno() {
 		return fno;
 	}
